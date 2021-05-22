@@ -22,9 +22,11 @@ Team members: Tori Arriola, Yifei Cao, Kylee Grant, Leah Handel, Sana Jessani, C
 
 # Dataset Overview
 
+## [Publicly Funded Contraceptive Services at U.S. Clinics, 2015 (Guttmacher Institute):](https://www.guttmacher.org/report/publicly-funded-contraceptive-services-us-clinics-2015)
 
+## [Publicly Supported Family Planning Services in the United States: Likely Need, Availability and Impact, 2016 (Guttmacher Institute):](https://www.guttmacher.org/report/publicly-supported-FP-services-US-2016)
 
-## [Teen Birth Rates for Age Group 15-19 in the United States by County (CSV):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
+## [Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
 This dataset details estimated birth rates, expressed per 1,000 females aged 15–19, for 3,137 U.S. counties. This data spans 2003 to 2018 and largely is sourced from the National Vital Statistics System birth data files. For further information, please see the documentation at the link above. 
 
 ### Metadata: 
@@ -88,7 +90,7 @@ This dataset details estimated birth rates, expressed per 1,000 females aged 15�
      title: "NCHS - Teen Birth Rates for Age Group 15-19 in the United States by County"
      }
 
-## [U.S. and State Trends on Teen Births (CSV, JSON):](https://catalog.data.gov/dataset/nchs-u-s-and-state-trends-on-teen-births)
+## [U.S. and State Trends on Teen Births (NCHS):](https://catalog.data.gov/dataset/nchs-u-s-and-state-trends-on-teen-births)
 This dataset assembles all final birth data for females aged 15–19, 15–17, and 18–19 for the United States and each of the 50 states, expressed per 1,000 females in each age range. This data spans 1990–2018 and is based on 100% of birth certificates filed in 50 states. 
 
 ### Metadata: 
@@ -152,7 +154,7 @@ This dataset assembles all final birth data for females aged 15–19, 15–17, a
      title: "NCHS - U.S. and State Trends on Teen Births"
      }
 
-## [US Census: Cartographic Boundary Files (GeoJSON):](https://eric.clst.org/tech/usgeojson/)
+## [Cartographic Boundary Files (US Census):](https://eric.clst.org/tech/usgeojson/)
 For this project, we referenced the work of Eric Celeste, who has taken the United States Census Cartographic Boundary Files and converted them to GeoJSON using the MyGeoData vector converter. 
 
 

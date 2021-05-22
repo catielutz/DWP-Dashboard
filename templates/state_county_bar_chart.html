@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Teen Birth Rate by County</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="../static/css/reset.css" rel="stylesheet">
+  <link href="../static/css/simple-sidebar.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="row">
+        <div class="chart-container col-9">
+            <canvas id="stateChart">
+            <!-- chart goes here -->
+            </canvas>
+        </div>
+    </div>
+    <br><div class="row m-3">
+        <div class="col-3">
+            <button type="button" class="btn btn-secondary" id="clear_bars">Clear States</button>
+        </div>
+        <div class = "col-3">
+            <button type="button" class="btn btn-secondary" id="add_state_bars">Add State</button>
+        </div>
+        <div class = "col-3">
+            <input class="form-control" type="text" id="state_input_bars" placeholder="Illinois">
+        </div>
+        
+    </div><br>
+    <div class="row">
+        <div class="chart-container col-9">
+            <canvas id="countyChart">
+            <!-- chart goes here -->
+            </canvas>
+        </div>
+    </div>
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src = "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<!--Jinja variables-->
+<script type="text/javascript">
+    var countyCSV = '{{ countyCSV|tojson }}'
+    var countyCSV = JSON.parse(countyCSV)
+    var nationalCSV = '{{ nationalCSV|tojson }}'
+    var nationalCSV = JSON.parse(nationalCSV)
+</script>
+<!--Connect to JavaScript Document-->
+<script type="text/javascript" src="static/js/state_county_bars_LH.js"></script>
+
+</body>

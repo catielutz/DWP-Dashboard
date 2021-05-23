@@ -21,6 +21,11 @@ Base.prepare(engine, reflect=True)
 # Save reference to the tables
 County = Base.classes.county
 National = Base.classes.national
+Clinic2015 = Base.classes.clinic2015_county
+Clinic2015st = Base.classes.clinic2015_state
+Clinic2010 = Base.classes.clinic2010_county
+Clinic2010st = Base.classes.clinic2010_state
+Outcomes = Base.classes.outcomes
 
 #################################################
 # Flask Setup

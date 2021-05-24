@@ -24,7 +24,7 @@ Building upon our [prior work](https://github.com/Kylee-Grant/Project-2), we aim
 
 ## [Publicly Funded Contraceptive Services at U.S. Clinics (Guttmacher Institute, 2015 and 2010):](https://www.guttmacher.org/report/publicly-funded-contraceptive-services-us-clinics-2015)
 
-The Guttmacher Institute estimated the total number of women who received publicly supported contraceptive care in 2015 using multiple sources, such as service data for all agencies and clinics that provided publicly funded family planning services in the 50 states and the District of Columbia. They obtained clinic and client data from several federal sources, such as the Office of Population Affairs (OPA) and U.S. Department of Health and Human Services. 
+The Guttmacher Institute estimated the total number of women who received publicly supported contraceptive care in 2015 using service data for all agencies and clinics that provided publicly funded family planning services in the 50 states and the District of Columbia. They obtained clinic and client data from several federal sources, such as the Office of Population Affairs (OPA) and U.S. Department of Health and Human Services. 
 
 ### Data:
 No metadata available. Tables described below are from the full report: 

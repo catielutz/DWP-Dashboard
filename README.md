@@ -5,17 +5,17 @@ Team members: Tori Arriola, Yifei Cao, Kylee Grant, Leah Handel, Sana Jessani, C
 1. Machine Learning (Scikit-Learn)
 2. At least two of the following: 
      
-     - Python Pandas 
-     - Python Matplotlib
-     - HTML/CSS/Bootstrap
-     - JavaScript Plotly 
-     - JavaScript D3
-     - JavaScript Leaflet
-     - SQL Database
-     - MongoDB Database
-     - Google Cloud SQL
-     - Amazon AWS
-     - Tableau
+   - Python Pandas 
+   - Python Matplotlib
+   - HTML/CSS/Bootstrap
+   - JavaScript Plotly 
+   - JavaScript D3
+   - JavaScript Leaflet
+   - SQL Database
+   - MongoDB Database
+   - Google Cloud SQL
+   - Amazon AWS
+   - Tableau
 
 # Inspiration and Guiding Questions
 Building upon our [prior work](https://github.com/Kylee-Grant/Project-2), we aim to use machine learning to predict the effect access to contraception and family planning services has on teen pregnancy and birth rates. We hope that the resulting models of this project will help elucidate the most efficacious interventions in the outcomes of teen pregnancies and births.  
@@ -38,6 +38,13 @@ No metadata available. Tables described below are from the full report:
      TABLE 7. Number of teenage contraceptive clients served at publicly funded clinics, and the numbers of unintended pregnancies, unplanned births and abortions among teens averted by all publicly supported providers and by Title X–funded providers, by state, 2015
 
 ## [Publicly Supported Family Planning Services in the United States: Likely Need, Availability and Impact (Guttmacher Institute, 2016):](https://www.guttmacher.org/report/publicly-supported-FP-services-US-2016)
+
+This report provides updated estimates for 2016 for the following key indicators measuring the likely need for, actual provision of, and—by helping women achieve their reproductive goals:
+
+   - The numbers of women likely in need of public support for contraceptive services according to age, income level, race and ethnicity, and health insurance status.
+   - The numbers of women who received contraceptive services at all publicly supported family planning providers.
+   - The numbers of reproductive health outcomes prevented among women who received publicly supported contraceptive care, such as pregnancies as well as STIs. 
+   - The cost savings in public funds that result from preventing negative health outcomes.
 
 ### Data:
 No metadata available. Tables described below are from the full report: 
@@ -201,18 +208,18 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 # Software, Languages, and Libraries
 
-- Chart.js 
-- CSS
-- D3.js 
-- DB Browser for SQLite
-- Heroku 
-- HTML
-- Leaflet.js
-- Pandas 
-- Plotly
-- Scikit-Learn
-- SQLAlchemy
-- SQLite
+   - Chart.js 
+   - CSS
+   - D3.js 
+   - DB Browser for SQLite
+   - Heroku 
+   - HTML
+   - Leaflet.js
+   - Pandas 
+   - Plotly
+   - Scikit-Learn
+   - SQLAlchemy
+   - SQLite
 
 
 # Dashboard 

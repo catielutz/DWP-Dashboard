@@ -39,12 +39,15 @@ No metadata available. Tables described below are from the full report:
 
 ## [Publicly Supported Family Planning Services in the United States: Likely Need, Availability and Impact (Guttmacher Institute, 2016):](https://www.guttmacher.org/report/publicly-supported-FP-services-US-2016)
 
-The Guttmacher Institute estimated for 2016 for the following key indicators measuring the likely need for, actual provision of, and—by helping women achieve their reproductive goals:
+The Guttmacher Institute estimated for 2016 for the following key indicators measuring the likely need for, actual provision of, and the impact of publicly supported
+contraceptive/sexual and reproductive health services:
 
    - The numbers of women likely in need of public support for contraceptive services according to age, income level, race and ethnicity, and health insurance status.
    - The numbers of women who received contraceptive services at all publicly supported family planning providers.
    - The numbers of reproductive health outcomes prevented among women who received publicly supported contraceptive care, such as pregnancies as well as STIs. 
    - The cost savings in public funds that result from preventing negative health outcomes.
+
+The dataset was based on information from data from the U.S. Census Bureau in 2016, the 2014–2016 American Community Survey (ACS), and the 2011–2015 National Survey of Family Growth (NSFG). 
 
 ### Data:
 No metadata available. Tables described below are from the full report: 

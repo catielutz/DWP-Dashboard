@@ -18,13 +18,49 @@ Team members: Tori Arriola, Yifei Cao, Kylee Grant, Leah Handel, Sana Jessani, C
      - Tableau
 
 # Inspiration and Guiding Questions
-
+Building upon our [prior work](https://github.com/Kylee-Grant/Project-2), we aim to use machine learning to predict the effect access to contraception and family planning services has on teen pregnancy and birth rates. We hope that the resulting models of this project will help elucidate the most efficacious interventions in the outcomes of teen pregnancies and births.  
 
 # Dataset Overview
 
-## [Publicly Funded Contraceptive Services at U.S. Clinics (Guttmacher Institute, 2015):](https://www.guttmacher.org/report/publicly-funded-contraceptive-services-us-clinics-2015)
+## [Publicly Funded Contraceptive Services at U.S. Clinics (Guttmacher Institute, 2015 and 2010):](https://www.guttmacher.org/report/publicly-funded-contraceptive-services-us-clinics-2015)
+
+### Data:
+No metadata available. Tables described below are from the full report: 
+
+     TABLE 1. Number of clinics providing publicly supported contraceptive services and percentage change, by state—2001, 2006, 2010 and 2015
+     TABLE 2. Number of women receiving publicly supported contraceptive services, by state—2001, 2006, 2010 and 2015
+     TABLE 3. Number of clinics providing publicly funded contraceptive services, by clinic type, for all publicly funded clinics and for Title X–funded clinics—2001, 2010 and 2015 national summary and 2015 state detail
+     TABLE 4. Number of female contraceptive clients served at publicly funded clinics and at Title X–funded clinics, by clinic type—2001, 2010 and 2015 national summary and 2015 regional and state detail
+     TABLE 5. Number and distribution of clinics providing publicly funded contraceptive services and the number and distribution of female contraceptive clients served, by clinic type and Title X funding status, 2001, 2010 and 2015, and the percentage change in clinics and clients, 2001–2010 and 2010–2015
+     TABLE 6. Number of unintended pregnancies, unplanned births and abortions averted among clients served by all publicly supported providers and by Title X–funded providers, by state, 2015
+     TABLE 7. Number of teenage contraceptive clients served at publicly funded clinics, and the numbers of unintended pregnancies, unplanned births and abortions among teens averted by all publicly supported providers and by Title X–funded providers, by state, 2015
 
 ## [Publicly Supported Family Planning Services in the United States: Likely Need, Availability and Impact (Guttmacher Institute, 2016):](https://www.guttmacher.org/report/publicly-supported-FP-services-US-2016)
+
+### Data:
+No metadata available. Tables described below are from the full report: 
+
+     TABLE 1. Number of women who likely need public support for contraceptive services and supplies, by age-group, income level, and race and ethnicity, and percentage change between years—2000, 2010 and 2016
+     TABLE 2. Number of women who likely need public support for contraceptive services and supplies, by age-group and income level—2010 and 2016 national summary, and 2016 state detail
+     TABLE 3. Number of women who likely need public support for contraceptive services and supplies, by race and ethnicity, age-group and income—2010 and 2016 national summary, and 2016 state detail 
+     TABLE 4. Number of women who likely need public support for contraceptive services and supplies, and percentage change between 2010 and 2016—national summary and state detail, 2000, 2010 and 2016 
+     TABLE 5. Estimated number of women who likely need public support for contraceptive services and supplies who are uninsured and the percentage of women who are uninsured, both by age group and income level—2010, 2013 and 2016 national summary and 2016 state detail 
+     TABLE 6. Percentage, estimated number and percentage change in the number of women who likely need public support for contraceptive services and supplies who are uninsured, by state and state Medicaid expansion status under the Affordable Care Act— 2013 and 2016
+     TABLE 7. Number of female patients receiving publicly supported contraceptive services from all provider types, national summary, and by state for publicly supported clinics—2001, 2010 and 2016
+     TABLE 8. Number of women receiving contraceptive services from publicly supported clinics by clinic funding type, and percentage change—national summary and state detail, 2010 and 2016 
+     TABLE 9. Number of female adolescents receiving publicly supported contraceptive services from all provider types, national summary and by state for publicly supported clinics—2010 and 2016
+     TABLE 10. Number of female adolescents receiving contraceptive services from publicly supported clinics by clinic funding type, and percentage change—national summary and state detail, 2010 and 2016 
+     TABLE 11. Percentage of women who likely need public support for contraceptive services who are served by publicly supported providers, all women and adolescent women—national summary and state detail, 2010 and 2016 
+     TABLE 12. Percentage of women who likely need public support for contraceptive services who are served by clinics, according to clinic funding type, all women and adolescent women, by state—2010 and 2016 
+     TABLE 13. Health benefits from contraceptive and related noncontraceptive services received during publicly funded family planning visits, according to provider type, national summary, 2016 
+     TABLE 14. Health benefits from contraceptive and related noncontraceptive services received during publicly supported family planning visits at all provider types, national summary and by state for publicly supported clinics, 2016 
+     TABLE 15. Health benefits from contraceptive and related noncontraceptive services received during publicly supported family planning visits at clinics receiving Title X funds, by state, 2016
+     TABLE 16. Health benefits from contraceptive and related noncontraceptive services received during publicly supported family planning visits at clinics receiving other (non–Title X) public funds, by state, 2016 
+     TABLE 17. Number of pregnancies, births and abortions averted among patients younger than 20 at all provider types, national summary, and by state for publicly supported clinics, 2016 
+     TABLE 18. Public cost savings from contraceptive and related noncontraceptive services received during publicly supported family planning visits at all providers, including savings from averted pregnancies, STI sequelae and cancers, national summary, and by state for publicly supported clinics, 2016 
+     TABLE 19. Public cost savings from contraceptive and related noncontraceptive services received during family planning visits at Title X–funded clinics, including savings from averted pregnancies, STI sequelae and cancers, by state, 2016 
+     TABLE 20. Public cost savings from contraceptive and related noncontraceptive services received during family planning visits at clinics receiving other (non–Title X) public funds, including savings from averted pregnancies, STI sequelae and cancers, by state, 2016
+
 
 ## [Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
 This dataset details estimated birth rates, expressed per 1,000 females aged 15–19, for 3,137 U.S. counties. This data spans 2003 to 2018 and largely is sourced from the National Vital Statistics System birth data files. For further information, please see the documentation at the link above. 
@@ -172,6 +208,7 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 - Leaflet.js
 - Pandas 
 - Plotly
+- Scikit-Learn
 - SQLAlchemy
 - SQLite
 

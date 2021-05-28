@@ -30,6 +30,7 @@
     font-size: 16px
 }
 
+
   #wrapper {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
@@ -62,13 +63,26 @@
     z-index: 1000;
     transition: all 0.4s ease 0s;
   }
+  
   #img-p{
     max-height: 270px;
+    min-height: 270px;
+    position:relative;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+
+    
+  #img-l{
+    max-height: 270px;
+    min-height: 270px;
     position:relative;
     padding-right: 50px;
     padding-left: 50px;
-    padding-top: 30px;
+    padding-top: 10px;
   }
+
   #page-content-wrapper {
     width: 100%;
   }
@@ -92,10 +106,49 @@
   .card-header{
     background-color: white;
   }
+  
   .img-text {
+    color: #0d6efd;
+    text-decoration: underline;
     font-size: 20px;
   }
 
+  #our-images:hover{
+    cursor: pointer;
+    background-color: #b9f7f7;
+    padding: 10px;
+    border-radius: 25px;
+  }
+
+  #accordion-link{
+    color: #0d6efd;
+    text-decoration: underline;
+    font-size: 20px;
+  }
+  #accordion-link:hover {
+    cursor: pointer;
+    padding: 10px; 
+  }
+
+  #accordion {
+    margin: 20px;
+}
+
+.panel-group .panel, .panel-heading {
+    border-radius: 0;
+}
+
+.panel-heading {
+    height: 60px;
+}
+
+.panel-primary {
+    border: none;
+}
+
+.panel-title a{
+    text-decoration: none;
+}
   /* .card-dashboard-one {
     position: relative;
     border-color: #cdd4e0;

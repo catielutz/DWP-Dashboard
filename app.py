@@ -7,6 +7,9 @@ from sqlalchemy import create_engine, func
 
 from flask import Flask, render_template, redirect, jsonify, json, request
 
+# NOTE: Add to criteria for Heroku Deployment
+import pickle 
+
 #################################################
 # Database Setup (examples: https://pythonbasics.org/flask-sqlite/, https://flask.palletsprojects.com/en/1.1.x/patterns/sqlite3/)
 # This approach is based off of model from activity 10.3.10.
@@ -26,6 +29,16 @@ Clinic2015st = Base.classes.clinic2015_state
 Clinic2010 = Base.classes.clinic2010_county
 Clinic2010st = Base.classes.clinic2010_state
 Outcomes = Base.classes.outcomes
+
+#################################################
+# Machine Learning Model Setup
+#################################################
+#https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4
+#https://www.geeksforgeeks.org/deploy-machine-learning-model-using-flask/
+
+model = pickle.load(open('static/data/model.pkl', 'rb'))
+
+model = sklearn.model.load("pregnancy.model")
 
 #################################################
 # Flask Setup
@@ -124,6 +137,15 @@ def dashboard():
     session.close()
 
     return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV)
+
+
+@app.route("/machine_learning")
+def machine_learning():
+    
+
+    
+
+    return render_template("machine_learning.html")
 
 
 @app.route("/line_chart")

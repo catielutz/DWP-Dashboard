@@ -6,7 +6,7 @@ var promises = [];
 promises.push(d3.json(clinic10URL));
 promises.push(d3.json(countyURL));
 
-Promise.all(promises).then(function (data) {
+Promise.all(promises).then(function(data) {
     console.log(data)
 
     var clinic2010 = data[0];
@@ -15,18 +15,23 @@ Promise.all(promises).then(function (data) {
     var countyGeom = {};
     var clinicAvail = {};
 
+    // Adding FIPS to countyInfo
+    countyInfo.features.forEach(function (countyID) {
+        countyID.properties['FIPS'] = countyID.properties.STATE+countyID.properties.COUNTY;
+    });
+
+    // Creating dictionary of county information based on FIPS
     clinic2010.data.forEach(function (clinicData) {
-        let countyID = clinicData[1];
-        let clinicVal = clinicData[2];
+        let countyID = clinicData["FIPS"];
+        let clinicVal = clinicData["Pub_Fund_Clinics"];
         clinicAvail[countyID] = +clinicVal;
     });
 
+    // Using FIPS to grab number of clinics 
     countyInfo.features.forEach(function (countyID) {
-        let clinicVal = clinicAvail[countyID.properties.COUNTY];
+        let clinicVal = clinicAvail[countyID.properties.FIPS];
         countyID.properties['Pub_Fund_Clinics'] = clinicVal;
     });
-
-    console.log(countyInfo);
 
     var myMap = L.map("map", {
         center: [39.8283, -98.5795],
@@ -38,6 +43,8 @@ Promise.all(promises).then(function (data) {
     }).addTo(myMap);
 
     var geojson;
+
+    console.log(countyInfo); 
 
     geojson = L.choropleth(countyInfo, {
         valueProperty: "Pub_Fund_Clinics",
@@ -51,9 +58,8 @@ Promise.all(promises).then(function (data) {
         },
 
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("County: " + feature.properties.NAME + "<br>Total Publicly Funded Clinics: <br>" +
-                feature.properties.clinicVal +
-                "<br>2010<br>");
+            layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br>");
         }
     }).addTo(myMap);
 

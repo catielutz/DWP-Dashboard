@@ -37,7 +37,7 @@ Outcomes = Base.classes.outcomes
 #https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4
 #https://www.geeksforgeeks.org/deploy-machine-learning-model-using-flask/
 #################################################
-model = pickle.load(open('/static/data/model.pkl', 'rb'))
+#odel = pickle.load(open('/static/data/model.pkl', 'rb'))
 
 #################################################
 # Flask Setup
@@ -139,16 +139,16 @@ def dashboard():
     return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV)
 
 
-@app.route("/predict",methods=['POST'])
-def predict():
+# @app.route("/predict",methods=['POST'])
+# def predict():
 
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+#     int_features = [int(x) for x in request.form.values()]
+#     final_features = [np.array(int_features)]
+#     prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
+#     output = round(prediction[0], 2)
 
-    return render_template('machinelearning.html', prediction_text='The birth rate would be {}'.format(output))
+#     return render_template('machinelearning.html', prediction_text='The birth rate would be {}'.format(output))
 
 
 @app.route("/line_chart")

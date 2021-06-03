@@ -104,7 +104,8 @@ def dashboard():
     #################################################
     # STATE_COUNTY_BAR_CHART 
     #################################################
-    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).all()
+
+    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).filter(National.age_group == "15-19 years").all()
     resultsCountyCSV = session.query(County.state_fips_code, County.state, County.index, County.upper_confidence_limit, County.birth_rate, County.county_fips_code, County.county, County.year, County.lower_confidence_limit, County.combined_fips_code).all()
 
     # Store separate lists of dictionaries
@@ -199,7 +200,7 @@ def state_county_bar():
     session = Session(engine)
 
     # Query to return entire datasets 
-    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).all()
+    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).filter(National.age_group == "15-19 years").all()
     resultsCountyCSV = session.query(County.state_fips_code, County.state, County.index, County.upper_confidence_limit, County.birth_rate, County.county_fips_code, County.county, County.year, County.lower_confidence_limit, County.combined_fips_code).all()
 
     # Store separate lists of dictionaries

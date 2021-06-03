@@ -149,6 +149,16 @@
 .panel-title a{
     text-decoration: none;
 }
+
+#calculator { 
+  position: relative;
+  top: 40%;
+  left: 20%;
+  margin: -150px 0 0 -150px;
+  width:400px;
+  height:400px;
+  padding-left: 10px;
+}
   /* .card-dashboard-one {
     position: relative;
     border-color: #cdd4e0;

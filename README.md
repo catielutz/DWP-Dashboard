@@ -247,7 +247,7 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 # Dashboard 
 
-### [DWP's Dashboard](https://git.heroku.com/final-project-dwp.git)
+### [DWP's Dashboard](https://final-project-dwp.herokuapp.com/)
 
 ## Deployment
 

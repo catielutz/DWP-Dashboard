@@ -89,21 +89,24 @@
         <p class="h1">Teen Birth Rate and Pregnancy Calculator</p>
       </div>
       <body style="background: transparent;">
-        <div class = "container">
-          <div class="row row-sm m-4">
-        <div class="col-lg-12 ht-lg-100p">
-          <p class="h2 border-bottom">[Insert]</p>
-          <p class="h4">[Insert]</p><br><br><br>
-        </div>
-        <div class="login">
-            <!-- Main Input For Receiving Query to our ML -->
-           <form id="calculator" action="{{ url_for('predict')}}"method="post">
-             <input type="text" name="rate" placeholder="rate" required="required" /><br>
-               <input type="text" name="sales in first month" placeholder="sales in first month" required="required" /><br>
-           <input type="text" name="sales in second month" placeholder="sales in second month" required="required" /><br>
-               <button type="submit" class="btn btn-primary btn-block btn-large">Predict sales in third month</button>
-               <br><br>{{ prediction_text }}  
+        <!--  Beginning of calculator container -->
+        <div class="jumbotron">
+          <div class="container">
+            <p class="h2 border-bottom">[Insert]</p><br>
+            <p class="lead">[Insert]</p><br>
+            <div class="login">
+              <!-- Main Input For Receiving Query to our ML -->
+              <!-- 0.2500410024861704, 'percent_uninsured'),(0.06558019560976627, 'clinics_per_capita'),(0.06520519725046772, 'health_dept_per_capita'),-->
+              <form id="calculator" action="{{ url_for('predict')}}"method="post">
+                <input type="text" name="rate" placeholder="rate" required="required" /><br>
+                  <input type="text" name="sales in first month" placeholder="sales in first month" required="required" /><br>
+              <input type="text" name="sales in second month" placeholder="sales in second month" required="required" /><br>
+                  <button type="submit" class="btn btn-primary btn-block btn-large">Predict sales in third month</button>
+                  <br><br>{{ prediction_text }}  
               </form>
+            </div>
+          </div>
+        </div>
     <footer>
       <div class="container py-2">
         <div class="row text-center m-3">

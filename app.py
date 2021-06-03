@@ -1,6 +1,8 @@
 # Based off of model from activity 10.3.10
 #import sqlite3
 #import sqlalchemy
+import numpy as np 
+
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
@@ -32,13 +34,10 @@ Outcomes = Base.classes.outcomes
 
 #################################################
 # Machine Learning Model Setup
-#################################################
 #https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4
 #https://www.geeksforgeeks.org/deploy-machine-learning-model-using-flask/
-
+#################################################
 model = pickle.load(open('static/data/model.pkl', 'rb'))
-
-model = sklearn.model.load("pregnancy.model")
 
 #################################################
 # Flask Setup
@@ -139,13 +138,16 @@ def dashboard():
     return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV)
 
 
-@app.route("/machine_learning")
-def machine_learning():
-    
+@app.route("/predict",methods=['POST'])
+def predict():
 
-    
+    int_features = [int(x) for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    prediction = model.predict(final_features)
 
-    return render_template("machine_learning.html")
+    output = round(prediction[0], 2)
+
+    return render_template('machinelearning.html', prediction_text='The birth rate would be {}'.format(output))
 
 
 @app.route("/line_chart")

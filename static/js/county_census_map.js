@@ -108,12 +108,15 @@ Promise.all(promises).then(function (data) {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(myMap);
 
+
     var baseMaps = {
         "2010 Clinics": census2010,
         "2015 Clinics": census2015
-      };
+    }
 
-    L.control.layers(baseMaps, null).addTo(myMap);
+    L.control.layers(baseMaps, null, {
+        collapsed: false
+    }).addTo(myMap);
 
     var legend = L.control({ position: "bottomright" });
     legend.onAdd = function () {

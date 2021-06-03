@@ -37,7 +37,7 @@ Outcomes = Base.classes.outcomes
 #https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4
 #https://www.geeksforgeeks.org/deploy-machine-learning-model-using-flask/
 #################################################
-model = pickle.load(open('static/data/model.pkl', 'rb'))
+model = pickle.load(open('/static/data/model.pkl', 'rb'))
 
 #################################################
 # Flask Setup

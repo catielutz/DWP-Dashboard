@@ -30,7 +30,6 @@
     font-size: 16px
 }
 
-
   #wrapper {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
@@ -67,6 +66,8 @@
   #img-p{
     max-height: 270px;
     min-height: 270px;
+    min-width: 300px;
+    max-width: 300px;
     position:relative;
     padding-right: 30px;
     padding-left: 30px;
@@ -77,6 +78,8 @@
   #img-l{
     max-height: 270px;
     min-height: 270px;
+    min-width: 300px;
+    max-width: 300px;
     position:relative;
     padding-right: 50px;
     padding-left: 50px;
@@ -100,7 +103,6 @@
 
   .card-title {
   font-size: 20px;
-  
   }
 
   .card-header{
@@ -159,6 +161,21 @@
   height:400px;
   padding-left: 10px;
 }
+
+#accordion-body {
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+#accordion-body-2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
   /* .card-dashboard-one {
     position: relative;
     border-color: #cdd4e0;

@@ -9,8 +9,6 @@ Chart.plugins.register(ChartDataLabels);
 
     var states = nationalCSV;
 
-    states = states.filter(d=>d["age_group"] == "15-19 years");
-
     // organizing data for states graph: creating an array of objects, one object per state plus the total US. 
     // objects have name, change, bar color. 
     // data note: using name instead of state/county allows the code to borrow illinois from this array for the counties array below

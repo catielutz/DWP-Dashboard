@@ -1,6 +1,8 @@
 # Based off of model from activity 10.3.10
 #import sqlite3
 #import sqlalchemy
+import numpy as np 
+
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
@@ -32,13 +34,10 @@ Outcomes = Base.classes.outcomes
 
 #################################################
 # Machine Learning Model Setup
-#################################################
 #https://towardsdatascience.com/how-to-easily-deploy-machine-learning-models-using-flask-b95af8fe34d4
 #https://www.geeksforgeeks.org/deploy-machine-learning-model-using-flask/
-
-model = pickle.load(open('static/data/model.pkl', 'rb'))
-
-model = sklearn.model.load("pregnancy.model")
+#################################################
+#odel = pickle.load(open('/static/data/model.pkl', 'rb'))
 
 #################################################
 # Flask Setup
@@ -105,7 +104,8 @@ def dashboard():
     #################################################
     # STATE_COUNTY_BAR_CHART 
     #################################################
-    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).all()
+
+    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).filter(National.age_group == "15-19 years").all()
     resultsCountyCSV = session.query(County.state_fips_code, County.state, County.index, County.upper_confidence_limit, County.birth_rate, County.county_fips_code, County.county, County.year, County.lower_confidence_limit, County.combined_fips_code).all()
 
     # Store separate lists of dictionaries
@@ -139,13 +139,16 @@ def dashboard():
     return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV)
 
 
-@app.route("/machine_learning")
-def machine_learning():
-    
+# @app.route("/predict",methods=['POST'])
+# def predict():
 
-    
+#     int_features = [int(x) for x in request.form.values()]
+#     final_features = [np.array(int_features)]
+#     prediction = model.predict(final_features)
 
-    return render_template("machine_learning.html")
+#     output = round(prediction[0], 2)
+
+#     return render_template('machinelearning.html', prediction_text='The birth rate would be {}'.format(output))
 
 
 @app.route("/line_chart")
@@ -197,7 +200,7 @@ def state_county_bar():
     session = Session(engine)
 
     # Query to return entire datasets 
-    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).all()
+    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).filter(National.age_group == "15-19 years").all()
     resultsCountyCSV = session.query(County.state_fips_code, County.state, County.index, County.upper_confidence_limit, County.birth_rate, County.county_fips_code, County.county, County.year, County.lower_confidence_limit, County.combined_fips_code).all()
 
     # Store separate lists of dictionaries
@@ -237,5 +240,5 @@ def geomap():
 
 
 # Comment this out when not in development
-if __name__ == '__main__':
-   app.run(debug=True)
+#if __name__ == '__main__':
+#   app.run(debug=True)

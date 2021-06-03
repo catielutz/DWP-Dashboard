@@ -73,6 +73,23 @@ No metadata available. Tables described below are from the full report:
      TABLE 19. Public cost savings from contraceptive and related noncontraceptive services received during family planning visits at Title X–funded clinics, including savings from averted pregnancies, STI sequelae and cancers, by state, 2016 
      TABLE 20. Public cost savings from contraceptive and related noncontraceptive services received during family planning visits at clinics receiving other (non–Title X) public funds, including savings from averted pregnancies, STI sequelae and cancers, by state, 2016
 
+## [State Population Totals and Components of Change (Census Bureau, 2010-2019):](https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html#par_textimage_1574439295)
+
+[Insert]
+
+### Data:
+No metadata available. Tables described below are from the full report: 
+
+     [Insert]
+     
+## [Social Vulnerability Index (CDC and Agency for Toxic Substances and Disease Registry, 2018):](https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html)
+
+[Insert]
+
+### Data:
+No metadata available. Tables described below are from the full report: 
+
+     [Insert]
 
 ## [Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
 This dataset details estimated birth rates, expressed per 1,000 females aged 15–19, for 3,137 U.S. counties. This data spans 2003 to 2018 and largely is sourced from the National Vital Statistics System birth data files. For further information, please see the documentation at the link above. 
@@ -242,10 +259,10 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 
 
-### Updated Visualizations
+### Original Visualizations
 ------
 
-## Map of Teen Birth Rate by State (geomap.html)
+## Map of Teen Birth Rate by State and County (geomap.html)
 
 This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. **Update: **
 

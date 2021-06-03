@@ -82,7 +82,7 @@ No metadata available. Tables described below are from the full report:
 
      [Insert]
      
-## [Social Vulnerability Index (CDC and Agency for Toxic Substances and Disease Registry, 2018):](https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html)
+## [Social Vulnerability Index (CDC/Agency for Toxic Substances and Disease Registry, 2018):](https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html)
 
 [Insert]
 
@@ -264,12 +264,12 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 ## Map of Teen Birth Rate by State and County (geomap.html)
 
-This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. **Update: **
+This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state/county from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. 
 
 
 ## Teen Birth Rate by Age Range (group_bar.html)
 
-This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and  18-19. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies. **Update: **
+This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and  18-19. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies.
 
 
 ## Teen Birth Rate 2003–2018 (line_chart.html)

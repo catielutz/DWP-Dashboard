@@ -236,7 +236,6 @@ def state_county_bar():
     session.close()
     return render_template("state_county_bar_chart.html", countyCSV=countyCSV, nationalCSV=nationalCSV)
 
-
 @app.route("/geomap")
 def geomap():
     

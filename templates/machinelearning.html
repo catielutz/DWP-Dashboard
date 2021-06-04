@@ -97,17 +97,17 @@
             <div class="login">
               <!-- Main Input For Receiving Query to our ML -->
               <!-- 0.2500410024861704, 'percent_uninsured'),(0.06558019560976627, 'clinics_per_capita'),(0.06520519725046772, 'health_dept_per_capita'),-->
-              <form id="calculator" action="/machinelearning" method="post">
-                <input type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="title10_clinics_per_capita" placeholder="Title X Clinics Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="pp_per_capita" placeholder="Planned Parenthood Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="health_dept_per_capita" placeholder="Health Department Clinics Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="hospitals_per_capita" placeholder="Hospitals Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="title_10_clients_per_capita" placeholder="Title X Clients Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="pp_clients_per_capita" placeholder="Planned Parenthood Clients Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="dept_clinic_title10_per_capita" placeholder="Title X Department Clinic Per Capita" required="required" /><br>
-                <input type="text" size="35%" height="50" name="percent_uninsured" placeholder="Percent of Population Uninsured" required="required" /><br>
-                <input type="text" size="35%" height="50" name="SVI_sum_of_indicators" placeholder="Social Vulnerability Index" required="required" /><br>
+              <form id="calculator" action="/predict" method="post">
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="title10_clinics_per_capita" placeholder="Title X Clinics Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="pp_per_capita" placeholder="Planned Parenthood Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="health_dept_per_capita" placeholder="Health Department Clinics Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="hospitals_per_capita" placeholder="Hospitals Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="title_10_clients_per_capita" placeholder="Title X Clients Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="pp_clients_per_capita" placeholder="Planned Parenthood Clients Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="dept_clinic_title10_per_capita" placeholder="Title X Department Clinic Per Capita" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="percent_uninsured" placeholder="Percent of Population Uninsured" required="required" /><br>
+                <input value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="SVI_sum_of_indicators" placeholder="Social Vulnerability Index" required="required" /><br>
                 <br>
                 <button type="submit" class="btn btn-primary btn-block btn-large">Predict the county's teen birth rate</button>
                 <br><br>{{ prediction_text }}<br><br>  

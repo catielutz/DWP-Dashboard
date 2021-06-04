@@ -50,6 +50,10 @@ app = Flask(__name__)
 
 # Routes to render templates, using data from SQLite when needed 
 
+@app.route("/")
+def home():
+    return redirect ("/dashboard")
+
 @app.route("/aboutdata")
 def aboutdata():
     
@@ -62,7 +66,7 @@ def aboutus():
     return render_template("aboutus.html")
 
 
-@app.route("/")
+@app.route("/dashboard")
 def dashboard():
     session = Session(engine)
 
@@ -240,5 +244,5 @@ def geomap():
 
 
 # Comment this out when not in development
-#if __name__ == '__main__':
-#   app.run(debug=True)
+if __name__ == '__main__':
+   app.run(debug=True)

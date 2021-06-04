@@ -72,7 +72,7 @@ Promise.all(promises).then(function (data) {
 
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
-                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br>");
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
         }
     });
 
@@ -91,7 +91,7 @@ Promise.all(promises).then(function (data) {
 
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
-                feature.properties.Pub_Fund_Clinics + "<br>Year: 2015<br>");
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2015<br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
         }
     });
 

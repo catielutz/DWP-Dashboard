@@ -143,17 +143,25 @@ def dashboard():
     return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV)
 
 
-@app.route("/predict",methods=['POST', 'GET'])
+@app.route("/calculator/<county>", methods=["GET"])
+def calc(county):
+    # sql stuff with county
+    values = [15]*10 #sql_stuff(county)
+    print(county)
+    return render_template('machinelearning.html', values=values)
+ 
+
+@app.route("/predict",methods=['POST']) # post sends data to the server and returns it
 def predict():
 
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
+    float_features = [float(x) for x in request.form.values()]
+    final_features = [np.array(float_features)]
     prediction = model.predict(final_features)
 
     #output = round(prediction[0], 2)
 
-    return render_template('machinelearning.html', prediction_text='The birth rate would be {}'.format(prediction))
-
+    return render_template('machinelearning.html', values=final_features,
+        prediction_text='The birth rate would be {}%'.format(prediction[0]))
 
 @app.route("/line_chart")
 def line_chart():

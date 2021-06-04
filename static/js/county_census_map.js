@@ -61,8 +61,8 @@ Promise.all(promises).then(function (data) {
 
     census2010 = L.choropleth(county10Info, {
         valueProperty: "Pub_Fund_Clinics",
-        scale: ["#ffffb2", "#b10026"],
-        steps: 10,
+        scale: ["#FFEBEE", "#B71C1C"],
+        steps: 15,
         mode: "q",
         style: {
             color: "#fff",
@@ -80,8 +80,8 @@ Promise.all(promises).then(function (data) {
 
     census2015 = L.choropleth(county15Info, {
         valueProperty: "Pub_Fund_Clinics",
-        scale: ["#ffffb2", "#b10026"],
-        steps: 10,
+        scale: ["#E8F6F3", "#004638"],
+        steps: 15,
         mode: "q",
         style: {
             color: "#fff",
@@ -99,8 +99,7 @@ Promise.all(promises).then(function (data) {
         center: [39.8283, -98.5795],
         zoom: 5,
         layers: [
-            census2010,
-            census2015
+            census2010
         ]
     });
 
@@ -118,15 +117,39 @@ Promise.all(promises).then(function (data) {
         collapsed: false
     }).addTo(myMap);
 
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function () {
+    var census2015Legend = L.control({ position: "bottomright" });
+    census2015Legend.onAdd = function () {
         var div = L.DomUtil.create("div", "info legend");
         var limits = census2015.options.limits;
         var colors = census2015.options.colors;
         var labels = [];
 
         // Add the minimum and maximum.
-        var legendInfo = "<h1>Total Publicly Funded Clinics</h1>" +
+        var legendInfo = "<h1>Publicly Funded Clinics</h1></br>" + "<h2>by county: 2015</h2>" +
+            "<div class=\"labels\">" +
+            "<div class=\"min\">" + limits[0] + "</div>" +
+            "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
+            "</div>";
+
+        div.innerHTML = legendInfo;
+
+        limits.forEach(function (limit, index) {
+            labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
+        });
+
+        div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+        return div;
+    };
+
+    var census2010Legend = L.control({ position: "bottomright" });
+    census2010Legend.onAdd = function () {
+        var div = L.DomUtil.create("div", "info legend");
+        var limits = census2010.options.limits;
+        var colors = census2010.options.colors;
+        var labels = [];
+
+        // Add the minimum and maximum.
+        var legendInfo = "<h1>Publicly Funded Clinics by County</h1></br>" + "2010" +
             "<div class=\"labels\">" +
             "<div class=\"min\">" + limits[0] + "</div>" +
             "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
@@ -143,5 +166,16 @@ Promise.all(promises).then(function (data) {
     };
 
     // Adding the legend to the map
-    legend.addTo(myMap);
+    census2010Legend.addTo(myMap);
+
+    myMap.on("baselayerchange", function(activeLayer) {
+        if(activeLayer.name == "2015 Clinics") {
+            census2010Legend.remove();
+            census2015Legend.addTo(myMap);
+        }
+        else {
+            census2015Legend.remove();
+            census2010Legend.addTo(myMap);
+        }
+    })
 });

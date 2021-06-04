@@ -161,7 +161,7 @@ def predict():
     #output = round(prediction[0], 2)
 
     return render_template('machinelearning.html', values=final_features,
-        prediction_text='The birth rate would be {}%'.format(prediction[0]))
+        prediction_text='  The birth rate would be {}%'.format(prediction[0]))
 
 @app.route("/line_chart")
 def line_chart():

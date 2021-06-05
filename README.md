@@ -78,17 +78,14 @@ No metadata available. Tables described below are from the full report:
 This is a collection of annual population estimates, estimated components of resident population change, and rates of the components of resident population change for the United States and Puerto Rico from April 1, 2010 to July 1, 2019.
 
 ### Data:
-Metadata is available [here](https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nst-est2019-alldata.pdf) [pdf]
+Metadata is available [here](https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nst-est2019-alldata.pdf)
 
-     
 ## [Social Vulnerability Index (CDC/Agency for Toxic Substances and Disease Registry, 2018):](https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html)
 
-Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss. The CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 15 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters.
+Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss. The CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 15 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters. Read more about the Social Vulnerability Index [here](https://www.atsdr.cdc.gov/placeandhealth/svi/fact_sheet/fact_sheet.html).
 
 ### Data:
 Metadata is available [here](https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2016.html).
-
-Read more about the Social Vulnerability Index [here](https://www.atsdr.cdc.gov/placeandhealth/svi/fact_sheet/fact_sheet.html).
 
 ## [Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
 This dataset details estimated birth rates, expressed per 1,000 females aged 15–19, for 3,137 U.S. counties. This data spans 2003 to 2018 and largely is sourced from the National Vital Statistics System birth data files. For further information, please see the documentation at the link above. 

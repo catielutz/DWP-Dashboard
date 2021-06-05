@@ -34,6 +34,6 @@ var trace2 = {
 
 var data = [trace1, trace2];
 
-var layout = {barmode: 'group', title: 'US Teen Birth Rate by Age Group', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
+var layout = {barmode: 'group',  font: {family: 'Helvetica Neue', size: 12,style:"normal", weight: "bold"}, title: 'US Teen Birth Rate by Age Group', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
 Plotly.newPlot('plot', data, layout);
 

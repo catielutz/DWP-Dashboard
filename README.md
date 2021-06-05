@@ -220,7 +220,9 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 
 # Data Cleaning and Storage
+All CSVs were loaded and cleaned using Jupyter Notebook. These cleaned dataframes were loaded to SQLite. In order to allow an automap and class-based queries, our team used DB Browser for SQLite to quickly identify the primary key for each table. Separately, the JSON of the U.S. and State Trends on Teen Births dataset and GeoJSONs of the state and county boundaries were needed to complete the map visualizations; these are stored separate to the SQLite in directly in the repo. 
 
+For more information on prior data cleaning, please see the [README.md of Project-2](https://github.com/Kylee-Grant/Project-2).
 
 # Software, Languages, and Libraries
 
@@ -239,7 +241,6 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 
 # Machine Learning Explorations and Models
-
 
 # Dashboard 
 

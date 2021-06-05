@@ -43,7 +43,7 @@
   .h2 {
     padding-left: 50px;
     padding-right: 50px;
-    /* padding-top: 20px; */
+    padding-top: 20px;
   }
 
   .h4 {
@@ -58,13 +58,9 @@
     padding-top: 20px;
   }
 
-  .a-text {
-    padding-top: 20px;
-  }
-
-  .a-list {
-    padding-top: 20px;
-    padding-left: 20px;
+  .h6-2 {
+    padding-left: 40px;
+    padding-top: 10px;
   }
 
   #sidebar-wrapper {
@@ -164,7 +160,7 @@
 
 .accordion-item {
     margin-left: 40px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .panel-group .panel, .panel-heading {

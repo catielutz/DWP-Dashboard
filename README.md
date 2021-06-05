@@ -257,10 +257,9 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state or county from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. 
 
-## Map of Clinic Availability by State and County (county_census_map.html)
+## Publicly Funded Clinics by County: 2010 vs 2015 (county_census_map.html)
 
-insert 
-
+This choropleth map displays the number of publicly funded health clinics available per county during the years 2010 and 2015. Over the 5 years, 2,300 new clinics were opened nationally, with the greatest increase in availability in California with 145 new clinics and the greatest number of closures in Iowa at 17.
 
 ## Teen Birth Rate by Age Range (group_bar.html)
 

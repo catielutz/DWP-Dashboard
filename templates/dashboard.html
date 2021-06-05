@@ -103,44 +103,47 @@
         <p class="h1">DWP Data Dashboard Overview</p>
       </div>
 
-      <div class="col-lg-6 ht-lg-100 m-4">
+      <div class="col-lg-6 ht-lg-100 mt-4">
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
               <h6 class="card-title text-center border-bottom">US Map of Teen Birth Rates</h6>
-              <p class="card-text">This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast.</p>
+              <p class="card-text">Highest concentration of birth rates are found in the South and central areas of the
+                U.S. Lowest birth rate concentrations are found in Northeastern areas.</p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
             <div class="flot-chart-wrapper">
-              <img src="../static/images/map.png" class="img-fluid" alt="Map">
+              <img src="../static/images/map2.png" class="img-fluid" alt="Map">
             </div>
+            <p class="card-text">This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19
+              for each state from 2003 to 2018.</p>
           </div><!-- flot-chart-wrapper -->
         </div><!-- card-body -->
       </div><!-- card -->
 
-      <div class="col-lg-6 ht-lg-100 m-4">
+      <div class="col-lg-6 ht-lg-100 mt-4">
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
-              <h6 class="card-title text-center border-bottom">County Census Map</h6>
+              <h6 class="card-title mb-2 text-center border-bottom">County Census Map</h6>
               <p class="card-text">Here's some text</p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
             <div class="flot-chart-wrapper">
-              <img src="../static/images/map.png" class="img-fluid" alt="Map">
+              <img src="../static/images/map1.png" class="img-fluid" alt="Map1">
             </div>
           </div><!-- flot-chart-wrapper -->
         </div><!-- card-body -->
       </div><!-- card -->
 
-      <div class="col-lg-5 ht-lg-100p m-4">
+      <div class="col-lg-6 ht-lg-100p mt-4">
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
               <h6 class="card-title text-center">Teen Birthrate by State vs. US Total Line Chart</h6>
-              <p class="card-text">This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and  18-19. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies.</p>
+              <p class="card-text">Birth rate amongst teens aged 18-19 years is higher than that of the teens aged 15-17 years.</p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
@@ -159,42 +162,13 @@
                 </div>
               </div>
             </div><!-- flot-chart-wrapper -->
+            <p class="card-text">This visualization charts the teen birth rates from 2003 to 2018, separated by ages
+              15-17 and 18-19. </p>
           </div><!-- card-body -->
         </div><!-- card -->
       </div><!-- card -->
 
-
-      <div class="col-lg-6 ht-lg-100p m-4">
-        <div class="card card-dashboard-one">
-          <div class="card-header">
-            <div>
-              <h6 class="card-title text-center">Interactive State and County Bar Chart</h6>
-              <p class="card-text"></p>
-            </div>
-          </div><!-- card-header -->
-          <div class="card-body">
-            <div class="flot-chart-wrapper m-2">
-              <canvas id="stateChart"></canvas>
-              <br>
-              <div class="row">
-                <div class="col-3">
-                  <button type="button" class="btn btn-secondary" id="clear_bars">Clear States</button>
-                </div>
-                <div class="col-3">
-                  <button type="button" class="btn btn-secondary" id="add_state_bars">Add State</button>
-                </div>
-                <div class="col-3">
-                  <input class="form-control" type="text" id="state_input_bars" placeholder="Illinois">
-                </div>
-              </div>
-              <canvas id="countyChart"></canvas>
-            </div><!-- flot-chart-wrapper -->
-          </div><!-- card-body -->
-        </div><!-- card -->
-      </div><!-- card -->
-
-
-      <div class="col-lg-5 ht-lg-100p mt-4">
+      <div class="col-lg-6 ht-lg-100p mt-4">
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
@@ -210,6 +184,35 @@
         </div><!-- card -->
       </div><!-- col -->
     </div><!-- col -->
+
+    <div class="col-lg-6 ht-lg-100p mt-4">
+      <div class="card card-dashboard-one">
+        <div class="card-header">
+          <div>
+            <h6 class="card-title text-center">Interactive State and County Bar Chart</h6>
+            <p class="card-text"></p>
+          </div>
+        </div><!-- card-header -->
+        <div class="card-body">
+          <div class="flot-chart-wrapper m-2">
+            <canvas id="stateChart"></canvas>
+            <br>
+            <div class="row">
+              <div class="col-3">
+                <button type="button" class="btn btn-secondary" id="clear_bars">Clear States</button>
+              </div>
+              <div class="col-3">
+                <button type="button" class="btn btn-secondary" id="add_state_bars">Add State</button>
+              </div>
+              <div class="col-3">
+                <input class="form-control" type="text" id="state_input_bars" placeholder="Illinois">
+              </div>
+            </div>
+            <canvas id="countyChart"></canvas>
+          </div><!-- flot-chart-wrapper -->
+        </div><!-- card-body -->
+      </div><!-- card -->
+    </div><!-- card -->
 
     <footer>
       <div class="container py-2">

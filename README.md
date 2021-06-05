@@ -78,18 +78,16 @@ No metadata available. Tables described below are from the full report:
 [Insert]
 
 ### Data:
-No metadata available. Tables described below are from the full report: 
+Metadata is available [here](https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nst-est2019-alldata.pdf) [pdf]
 
-     [Insert]
      
 ## [Social Vulnerability Index (CDC/Agency for Toxic Substances and Disease Registry, 2018):](https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html)
 
-[Insert]
 
 ### Data:
-No metadata available. Tables described below are from the full report: 
+Metadata is available [here](https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2016.html).
 
-     [Insert]
+Read more about the Social Vulnerability Index [here](https://www.atsdr.cdc.gov/placeandhealth/svi/fact_sheet/fact_sheet.html).
 
 ## [Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
 This dataset details estimated birth rates, expressed per 1,000 females aged 15–19, for 3,137 U.S. counties. This data spans 2003 to 2018 and largely is sourced from the National Vital Statistics System birth data files. For further information, please see the documentation at the link above. 

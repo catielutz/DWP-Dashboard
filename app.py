@@ -112,13 +112,14 @@ def dashboard():
     birthRate1819 = []
     for r in resultsBirthRate1819: 
         birthRate1819.append({"rate": r[1], "year": r[0], "state":r[2]})
+    
     # Overal US dictionary 
     USBirthRate1517  = []
     for r in resultsUSBirthRate1517: 
-        resultsUSBirthRate1517.append({"rate": r[1], "year": r[0]})
+        USBirthRate1517.append({"rate": r[1], "year": r[0]})
     USBirthRate1819  = []
     for r in resultsUSBirthRate1819: 
-        resultsUSBirthRate1819.append({"rate": r[1], "year": r[0]})
+        USBirthRate1819.append({"rate": r[1], "year": r[0]})
     
     #################################################
     # STATE_COUNTY_BAR_CHART 
@@ -248,7 +249,6 @@ def line_chart():
     return render_template("line_chart.html", USData=USData, stateData=stateData)
 
 
-
 @app.route("/group_bar")
 def group_bar():
     session = Session(engine)
@@ -267,18 +267,17 @@ def group_bar():
     birthRate1819 = []
     for r in resultsBirthRate1819: 
         birthRate1819.append({"rate": r[1], "year": r[0], "state":r[2]})
+    
     # Overal US dictionary 
     USBirthRate1517  = []
     for r in resultsUSBirthRate1517: 
-        resultsUSBirthRate1517.append({"rate": r[1], "year": r[0]})
+        USBirthRate1517.append({"rate": r[1], "year": r[0]})
     USBirthRate1819  = []
     for r in resultsUSBirthRate1819: 
-        resultsUSBirthRate1819.append({"rate": r[1], "year": r[0]})
+        USBirthRate1819.append({"rate": r[1], "year": r[0]})
     
-
     session.close()
     return render_template("group_bar.html", birthRate1517=birthRate1517, birthRate1819=birthRate1819, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819)
-
 
 
 @app.route("/state_county_bar_chart")

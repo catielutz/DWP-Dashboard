@@ -2,6 +2,7 @@
 #import sqlite3
 #import sqlalchemy
 import numpy as np 
+import pandas as pd
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -26,11 +27,16 @@ Base.prepare(engine, reflect=True)
 # Save reference to the tables
 County = Base.classes.county
 National = Base.classes.national
-Clinic2015 = Base.classes.clinic2015_county
-Clinic2015st = Base.classes.clinic2015_state
-Clinic2010 = Base.classes.clinic2010_county
-Clinic2010st = Base.classes.clinic2010_state
 Outcomes = Base.classes.outcomes
+
+County2015 = Base.classes.clinic2015_county
+County2010 = Base.classes.clinic2010_county
+
+State2015 = Base.classes.clinic2015_state
+State2010 = Base.classes.clinic2010_state
+
+Countypop = Base.classes.county_pop
+CountySVI = Base.classes.county_svi
 
 #################################################
 # Machine Learning Model Setup
@@ -145,23 +151,71 @@ def dashboard():
 
 @app.route("/calculator/<county>", methods=["GET"])
 def calc(county):
-    # sql stuff with county
-    values = [15]*10 #sql_stuff(county)
-    print(county)
+    session = Session(engine)
+    county_fips = county 
+
+    # Run our SQLAlchemy to get the specific data for that county 
+    join_query = session.query(County2015.fips, County2015.total_clinics, County2015.total_titleten, County2015.pp,\
+                           County2015.dept_clinic, County2015.hospital, County2015.total_client_tt,\
+                           County2015.pp_client, County2015.dept_clinic_tt, County2015.pp_tt,\
+                           County2015.total_client, County2015.hospital_client, County.birth_rate,\
+                           County.year, County.state, County.county)\
+                    .join(County, County.combined_fips_code == County2015.fips)\
+                    .filter(County.year=="2016")
+
+    county_df = pd.DataFrame(join_query, columns=["FIPS", "total_clinics", "total_title10", "total_pp", "health_dept_clinics", 
+                                              "hospitals","title_10_clients","pp_clients", "dept_clinic_title10","pp_tt",
+                                              "total_clients","hospital_client","birth_rate", "year", "state", "county"])
+    
+    # Read in county population data for per capita calculations 
+    county_populations = pd.read_sql_query('SELECT * FROM county_pop', con=engine)
+    county_populations.set_index('index', inplace=True)
+
+    # Merging this population data with the prior df 
+    county_df = county_df.merge(county_populations, how='left', on=["state","county"])
+
+    # Use Pandas read sql to grab the entire table into a df 
+    county_SVI = pd.read_sql_query('SELECT * FROM county_svi', con=engine)
+    county_SVI.set_index('index', inplace=True)
+    county_SVI=county_SVI.drop(columns=["state","county"])
+
+    # Merging this SVI data with the first df 
+    county_df=county_df.merge(county_SVI, how='left', on="FIPS")
+
+    # Transforming data to a per capita basis
+    county_df["clinics_per_capita"] = county_df["total_clinics"]/county_df["population_2015"]
+    county_df["title10_clinics_per_capita"] = county_df["total_title10"]/county_df["population_2015"]
+    county_df["pp_per_capita"] = county_df["total_pp"]/county_df["population_2015"]
+    county_df["health_dept_per_capita"] = county_df['health_dept_clinics']/county_df["population_2015"]
+    county_df["hospitals_per_capita"] = county_df['hospitals']/county_df["population_2015"]
+    county_df["title_10_clients_per_capita"] = county_df["title_10_clients"]/county_df["population_2015"]
+    county_df["pp_clients_per_capita"] = county_df['pp_clients']/county_df["population_2015"]
+    county_df["dept_clinic_title10_per_capita"] = county_df['dept_clinic_title10']/county_df["population_2015"]
+    
+    # Grabbing all the data for that county to populate the calculator
+    calculator_prefill = county_df.loc[county_df["FIPS"] == int(county_fips), ['FIPS','birth_rate','clinics_per_capita','title10_clinics_per_capita', 'pp_per_capita', 
+        'health_dept_per_capita', 'hospitals_per_capita', 'title_10_clients_per_capita','pp_clients_per_capita', 
+        'dept_clinic_title10_per_capita','percent_uninsured','SVI_sum_of_indicators']]
+    calculator_prefill = calculator_prefill.round(decimals=7)
+    
+    # Make into an array for our Jinja 
+    prefill_values=calculator_prefill.values
+    values=prefill_values[0]
+    
     return render_template('machinelearning.html', values=values)
  
 
-@app.route("/predict",methods=['POST']) # post sends data to the server and returns it
+@app.route("/predict",methods=['POST']) # Post sends data to the server and returns it
 def predict():
 
     float_features = [float(x) for x in request.form.values()]
     final_features = [np.array(float_features)]
-    prediction = model.predict(final_features)
+    prediction_raw = model.predict(final_features)
+    prediction = prediction_raw[0]
+    prediction = round(prediction, 0)
+    
+    return render_template('machinelearning.html', values=final_features, prediction_text="  The teen birth rate would be {} per 1,000".format(prediction))
 
-    #output = round(prediction[0], 2)
-
-    return render_template('machinelearning.html', values=final_features,
-        prediction_text='  The birth rate would be {}%'.format(prediction[0]))
 
 @app.route("/line_chart")
 def line_chart():

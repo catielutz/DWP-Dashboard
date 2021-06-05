@@ -83,7 +83,7 @@
       onEachFeature: function(feature, layer) {
         layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" +"Teen Birth Rate<br>" +
           feature.properties.birthRateVal + " per 1,000 " +
-          "<br>2003-2018<br><br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+          "<br>Years: 2003-2018<br><br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
       }
     });
 

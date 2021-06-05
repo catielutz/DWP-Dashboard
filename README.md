@@ -256,30 +256,30 @@ Pickle was used to serialize the machine learning model to make it usable within
 
 # Final Visualizations 
 
-### Updated Visualizations
+## Updated Visualizations
 ------
 
-## Map of Teen Birth Rate by State and County (geomap.html)
+### Map of Teen Birth Rate by State and County (geomap.html)
 
 This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state or county from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. 
 
-## Publicly Funded Clinics by County: 2010 vs 2015 (county_census_map.html)
+### Publicly Funded Clinics by County: 2010 vs 2015 (county_census_map.html)
 
 This choropleth map displays the number of publicly funded health clinics available per county during the years 2010 and 2015. Over the 5 years, 2,300 new clinics were opened nationally, with the greatest increase in availability in California with 145 new clinics and the greatest number of closures in Iowa at 17.
 
-## Teen Birth Rate by Age Range (group_bar.html)
+### Teen Birth Rate by Age Range (group_bar.html)
 
 This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and 18-19 and selectable by state. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies.
 
-### Original Visualizations
+## Original Visualizations
 ------
 
-## Teen Birth Rate 2003–2018 (line_chart.html)
+### Teen Birth Rate 2003–2018 (line_chart.html)
 
 This visualization charts each state’s teen birth rate per 1,000 females aged 15-19 by year from 2003 to 2018. This chart reflects a universal trend of decreasing teen birth rates during this range of years. According to the Pew Research Center, the teen birth rate in 2018 was less than half of what it had been in 2008. The Pew Research Center noted that, while the teen birth rate has been on a steep decline since the early 1990s, the decline accelerated after the onset of the Great Recession in 2007. **Update: **
 
 
-## Teen Birth Rate by State and County (state_county_bar_chart.html)
+### Teen Birth Rate by State and County (state_county_bar_chart.html)
 
 This visualization charts the change in the teen birth rate per 1,000 females aged 15-19 from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties with the least and greatest amount of change have been pre-selected. Although most counties reflect the overall trend of declining teen birth rates across the U.S., that change is not true of every county. Counties that experienced an increase in their teen birth rates warrant further investigation; preliminary examination indicated that an increase would occur more often in smaller communities.
 

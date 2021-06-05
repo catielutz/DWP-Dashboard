@@ -246,7 +246,13 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 ### [DWP's Dashboard](https://final-project-dwp.herokuapp.com/)
 
 ## Deployment
+Once the SQLite database was ready, we proceeded with organizing the flow of information on our website according to the following structure:  
 
+![Graph](static/images/Structure.png)
+
+The cleaned data was stored in a SQLite database. We used a Flask application with SQLAlchemy to query the SQLite and serve the data. The data from the Flask app was prepared with Jinja, and the JavaScript used that data for the visualizations. This website was deployed using Heroku and connected to this GitHub repository.
+
+Pickle was used to serialize the machine learning model to make it usable within the Flask application. Then, a HTML form was linked to a POST route to take user input placed into the HTML calculator to predict the birth rate for any given county. This calculator is prepopulated using a specific county's data, matched using the FIPS code, selected from the tooltip of any county-based visualization on the website. 
 
 # Final Visualizations 
 
@@ -279,4 +285,8 @@ This visualization charts the change in the teen birth rate per 1,000 females ag
 
 
 # Further Questions and Research 
-If time allowed, our team would have liked to address the following questions: 
+If time allowed, our team would have liked to address the following:
+   - Revise the calculator to be more user-friendly, including limiting user input to the most influential parts of the model. 
+   - Implement further data on other contributing factors, such as transportation availability, regional health education, and client residency/distance travelled.
+   - Optimizing SQLAlchemy requests to reduce queries initiated while loading, and reduce duplicate code throughout the project to avoid versions issues. 
+   - Utilize Cloud services, such as AWS, to store and retrieve our data, allowing us to offload our SQLite and GeoJSON/JSON files from the project’s repo. 

@@ -49,6 +49,13 @@
   .h4 {
     padding-left: 50px;
     padding-right: 50px;
+    padding-top: 20px;
+  }
+
+  .h6 {
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 20px;
   }
 
   #sidebar-wrapper {
@@ -63,6 +70,16 @@
     transition: all 0.4s ease 0s;
   }
   
+  .img{
+    position: relative;
+    max-height: 270px;
+    min-height: 270px;
+    min-width: 550px;
+    max-width: 550px;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-top: 10px;
+  }
   #img-p{
     max-height: 270px;
     min-height: 270px;

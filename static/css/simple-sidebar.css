@@ -1,3 +1,4 @@
+
 .side-navbar {
     position: absolute;
     top: 0;
@@ -69,7 +70,7 @@
     transition: all 0.4s ease 0s;
   }
   
-  .img {
+  .img{
     position: relative;
     max-height: 270px;
     min-height: 270px;
@@ -79,7 +80,6 @@
     padding-left: 70px;
     padding-top: 10px;
   }
-
   #img-p{
     max-height: 270px;
     min-height: 270px;
@@ -117,16 +117,13 @@
   .button {
     color: #66d1d1;
   }
-.card {
-  border: 1px solid;
-}
-.card-title {
+
+  .card-title {
   font-size: 20px;
-  padding: 20px;
   }
 
-.card-text{
-  padding: 10px;
+  .card-header{
+    background-color: white;
   }
   
   .img-text {

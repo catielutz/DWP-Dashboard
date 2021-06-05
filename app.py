@@ -318,6 +318,7 @@ def state_county_bar():
     session.close()
     return render_template("state_county_bar_chart.html", countyCSV=countyCSV, nationalCSV=nationalCSV)
 
+
 @app.route("/geomap")
 def geomap():
     
@@ -330,5 +331,5 @@ def countymap():
     return render_template("county_census_map.html")
 
 # Comment this out when not in development
-# if __name__ == '__main__':
+#if __name__ == '__main__':
 #    app.run(debug=True)

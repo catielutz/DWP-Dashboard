@@ -98,19 +98,28 @@ def dashboard():
     #################################################
     # GROUP BAR 
     #################################################
-    resultsBirthRate1517 = session.query(National.year, National.us_rate).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
-    resultsBirthRate1819 = session.query(National.year, National.us_rate).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
+    # Query for US birth rate and year, filtering for 15-17 and 18-19 year data 
+    resultsBirthRate1517 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
+    resultsBirthRate1819 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
+    resultsUSBirthRate1517 = session.query(National.year, National.us_rate).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
+    resultsUSBirthRate1819 = session.query(National.year, National.us_rate).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
     # Use of distinct: https://stackoverflow.com/questions/48102501/remove-duplicates-from-sqlalchemy-query-using-set
 
     # Store separate lists of dictionaries
     birthRate1517 = []
     for r in resultsBirthRate1517: 
-        birthRate1517.append({"rate": r[1], "year": r[0]})
+        birthRate1517.append({"rate": r[1], "year": r[0], "state":r[2]})
     birthRate1819 = []
     for r in resultsBirthRate1819: 
-        birthRate1819.append({"rate": r[1], "year": r[0]})
+        birthRate1819.append({"rate": r[1], "year": r[0], "state":r[2]})
+    # Overal US dictionary 
+    USBirthRate1517  = []
+    for r in resultsUSBirthRate1517: 
+        resultsUSBirthRate1517.append({"rate": r[1], "year": r[0]})
+    USBirthRate1819  = []
+    for r in resultsUSBirthRate1819: 
+        resultsUSBirthRate1819.append({"rate": r[1], "year": r[0]})
     
-
     #################################################
     # STATE_COUNTY_BAR_CHART 
     #################################################
@@ -146,7 +155,7 @@ def dashboard():
 
     session.close()
 
-    return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV)
+    return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819)
 
 
 @app.route("/calculator/<county>", methods=["GET"])
@@ -247,6 +256,8 @@ def group_bar():
     # Query for US birth rate and year, filtering for 15-17 and 18-19 year data 
     resultsBirthRate1517 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
     resultsBirthRate1819 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
+    resultsUSBirthRate1517 = session.query(National.year, National.us_rate).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
+    resultsUSBirthRate1819 = session.query(National.year, National.us_rate).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
     # Use of distinct: https://stackoverflow.com/questions/48102501/remove-duplicates-from-sqlalchemy-query-using-set
 
     # Store separate lists of dictionaries
@@ -256,9 +267,17 @@ def group_bar():
     birthRate1819 = []
     for r in resultsBirthRate1819: 
         birthRate1819.append({"rate": r[1], "year": r[0], "state":r[2]})
+    # Overal US dictionary 
+    USBirthRate1517  = []
+    for r in resultsUSBirthRate1517: 
+        resultsUSBirthRate1517.append({"rate": r[1], "year": r[0]})
+    USBirthRate1819  = []
+    for r in resultsUSBirthRate1819: 
+        resultsUSBirthRate1819.append({"rate": r[1], "year": r[0]})
+    
 
     session.close()
-    return render_template("group_bar.html", birthRate1517=birthRate1517, birthRate1819=birthRate1819)
+    return render_template("group_bar.html", birthRate1517=birthRate1517, birthRate1819=birthRate1819, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819)
 
 
 

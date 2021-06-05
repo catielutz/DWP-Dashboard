@@ -16,6 +16,37 @@ console.log(birthRate1819);
 //   });
 // }
 
+
+var USBirthRate15171 = USBirthRate1517.map(function(d) { return d.rate;});
+var USBirthRate18191 = USBirthRate1819.map(function(d) { return d.rate;});
+
+// Filter JSON to return only the years (could use either variable)
+var years1 = USBirthRate15171.map(function(d) { return d.year;});
+
+// Inserting data into Plotly chart 
+var trace1 = {
+  x: years1,
+  y: USBirthRate18191,
+  name: 'Ages 18-19',
+  type: 'bar',
+  marker: {color:'#7f7f7f'}
+};
+console.log(trace1);
+
+var trace2 = {
+  x: years1,
+  y:USBirthRate15171,
+  name: 'Ages 15-17',
+  type: 'bar',
+  marker: {color:'#17becf'}
+};
+
+
+var data = [trace1, trace2];
+
+var layout = {barmode: 'group', title: 'US Teen Birth Rate by Age Group', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
+Plotly.newPlot('plot1', data, layout);
+
 // Submit Button handler
 function handleSubmit() {
    // Prevent the page from refreshing
@@ -70,7 +101,7 @@ function buildPlot(state) {
 
   var data = [trace1, trace2];
 
-  var layout = {barmode: 'group', title: ' Teen Birth Rate by Age Group', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
+  var layout = {barmode: 'group', title: ' Teen Birth Rate Age Group By State', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
   Plotly.newPlot('plot', data, layout);
 
 }

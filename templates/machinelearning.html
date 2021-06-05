@@ -93,7 +93,37 @@
         <!--  Beginning of calculator container -->
         <div class="container">
           <p class="h2 border-bottom">Our Machine Learning Model</p>
-          <p>[Insert]</p>
+          p class="h2 border-bottom">Our Machine Learning Model</p>
+          <p class="h4">Incorporating the Social Vulnerability Index</p>
+
+          <p class ="h6">The strongest correlation we found to teen pregnancy was the CDC’s Social Vulnerability Index (SVI). The
+            SVI is an aggregation of social and demographic data including employment, access to transportation,
+            crowding, and language. It was designed to help officials direct public health and emergency response
+            resources to vulnerable populations.</p>
+
+          <p class="h6">We found that a county’s teen pregnancy rate had a strong, linear relationship with its SVI score (R^2 =
+            .46, P < 10^15).</p>
+            <img src="../static/images/linear_regression.png" alt="regression" class="img">
+              <p class="h6">The SVI is about identifying places where health resources are harder to access, and its correlation
+                with the teen birth rate shows that teen pregnancy is not a moral problem, but one of access to
+                healthcare.</p>
+
+              <p class="h4">Specific Factors in Teen Pregnancy</p>
+
+              <p class="h6">The factors that go into the SVI are complex, and we also wanted to identify some simpler policy issues
+                that affect teen pregnancy. In other words, what recommendations could we make to specifically address
+                teen pregnancy? For this analysis, we created a random forest regression model to analyze the relative
+                importance of each factor and to predict the effects of specific healthcare access issues on teen
+                pregnancy . We used data from the Guttmacher Institute on contraceptive healthcare providers in each
+                county, adjusted to a per capita basis. We also included SVI scores in our model to control for
+                correlation between it and our specific access measures.</p>
+
+              <p class="h6">After SVI, the largest factor we identified in our model was the percent of residents who are uninsured
+                (feature importance = 25.0%) and the number of contraceptive clinics per capita (.07%). Less significant
+                factors include the number of Planned Parenthood clinics per capita (2.6%) and the number of hospitals
+                per capita (0.4%). Model R^2 = .53.</p>
+
+              <p class="h6">Use the calculator below to…</p>
         </div>
         <div class="login" id="form">
         <!-- Main Input For Receiving Query to our ML -->

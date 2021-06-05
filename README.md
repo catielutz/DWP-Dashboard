@@ -253,12 +253,11 @@ Once the SQLite database was ready, we proceeded with organizing the flow of inf
 
 The cleaned data was stored in a SQLite database. We used a Flask application with SQLAlchemy to query the SQLite and serve the data. The data from the Flask app was prepared with Jinja, and the JavaScript used that data for the visualizations. This website was deployed using Heroku and connected to this GitHub repository.
 
-Pickle was used to serialize the machine learning model to make it usable within the Flask application. Then, a HTML form was linked to a POST route to take user input placed into the HTML calculator to predict the birth rate for any given county. This calculator is prepopulated using a specific county's data, matched using the FIPS code, selected from the tooltip of any county-based visualization on the website. 
+Pickle was used to serialize the machine learning model to make it usable within the Flask application. Then, a HTML form was linked to a POST route to take user input placed into the HTML calculator to predict the birth rate for any given county. This calculator is prepopulated using a specific county's data—matched using the FIPS code—selected from the tooltip of any county-based visualization on the website. 
 
 # Final Visualizations 
 
 ## Updated Visualizations
-------
 
 ### Map of Teen Birth Rate by State and County (geomap.html)
 
@@ -273,11 +272,10 @@ This choropleth map displays the number of publicly funded health clinics availa
 This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and 18-19 and selectable by state. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies.
 
 ## Original Visualizations
-------
 
 ### Teen Birth Rate 2003–2018 (line_chart.html)
 
-This visualization charts each state’s teen birth rate per 1,000 females aged 15-19 by year from 2003 to 2018. This chart reflects a universal trend of decreasing teen birth rates during this range of years. According to the Pew Research Center, the teen birth rate in 2018 was less than half of what it had been in 2008. The Pew Research Center noted that, while the teen birth rate has been on a steep decline since the early 1990s, the decline accelerated after the onset of the Great Recession in 2007. **Update: **
+This visualization charts each state’s teen birth rate per 1,000 females aged 15-19 by year from 2003 to 2018. This chart reflects a universal trend of decreasing teen birth rates during this range of years. According to the Pew Research Center, the teen birth rate in 2018 was less than half of what it had been in 2008. The Pew Research Center noted that, while the teen birth rate has been on a steep decline since the early 1990s, the decline accelerated after the onset of the Great Recession in 2007. 
 
 
 ### Teen Birth Rate by State and County (state_county_bar_chart.html)

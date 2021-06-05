@@ -15,7 +15,12 @@
     var stateInfo = data[1];
     var countyInfo = data[2];
 
-  // Create birthRate dictionary to store birthRateVal from teenBirth
+  // Adding FIPS to countyInfo 
+  countyInfo.features.forEach(function (countyInfo) {
+    countyInfo.properties['FIPS'] = countyInfo.properties.STATE + countyInfo.properties.COUNTY;
+  });
+  
+    // Create birthRate dictionary to store birthRateVal from teenBirth
   // Use dictionary to update geojson data
     var birthRate = {};
 
@@ -56,9 +61,9 @@
       },
     
       onEachFeature: function(feature, layer) {
-        layer.bindPopup("State: " + feature.properties.NAME + "<br>Teen Birth Rate<br>" +
-          feature.properties.birthRateVal + "%" +
-          "<br>2003-2018<br>");
+        layer.bindPopup("<b>" + feature.properties.NAME + "</br></b>Teen Birth Rate<br>" +
+          feature.properties.birthRateVal + " per 1,000 " +
+          "<br>Years: 2003-2018<br>");
       }
     });
 
@@ -76,9 +81,9 @@
       },
 
       onEachFeature: function(feature, layer) {
-        layer.bindPopup("County: " + feature.properties.NAME + "<br>Teen Birth Rate<br>" +
-          feature.properties.birthRateVal + "%" +
-          "<br>2003-2018<br>");
+        layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" +"Teen Birth Rate<br>" +
+          feature.properties.birthRateVal + " per 1,000 " +
+          "<br>Years: 2003-2018<br><br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
       }
     });
 

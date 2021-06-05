@@ -75,21 +75,17 @@ No metadata available. Tables described below are from the full report:
 
 ## [State Population Totals and Components of Change (Census Bureau, 2010-2019):](https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html#par_textimage_1574439295)
 
-[Insert]
+This is a collection of annual population estimates, estimated components of resident population change, and rates of the components of resident population change for the United States and Puerto Rico from April 1, 2010 to July 1, 2019.
 
 ### Data:
-No metadata available. Tables described below are from the full report: 
+Metadata is available [here](https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nst-est2019-alldata.pdf)
 
-     [Insert]
-     
 ## [Social Vulnerability Index (CDC/Agency for Toxic Substances and Disease Registry, 2018):](https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html)
 
-[Insert]
+Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss. The CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 15 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters. Read more about the Social Vulnerability Index [here](https://www.atsdr.cdc.gov/placeandhealth/svi/fact_sheet/fact_sheet.html).
 
 ### Data:
-No metadata available. Tables described below are from the full report: 
-
-     [Insert]
+Metadata is available [here](https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2016.html).
 
 ## [Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018):](https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county)
 This dataset details estimated birth rates, expressed per 1,000 females aged 15–19, for 3,137 U.S. counties. This data spans 2003 to 2018 and largely is sourced from the National Vital Statistics System birth data files. For further information, please see the documentation at the link above. 
@@ -254,23 +250,23 @@ For this project, we referenced the work of Eric Celeste, who has taken the Unit
 
 # Final Visualizations 
 
-### New Visualizations
-------
-
-
-
-### Original Visualizations
+### Updated Visualizations
 ------
 
 ## Map of Teen Birth Rate by State and County (geomap.html)
 
-This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state/county from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. 
+This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19 for each state or county from 2003 to 2018. This map reflects a concentration of higher birth rates in the South and central areas of the U.S. as well as lower birth rates particularly in the Northeast. 
 
+## Publicly Funded Clinics by County: 2010 vs 2015 (county_census_map.html)
+
+This choropleth map displays the number of publicly funded health clinics available per county during the years 2010 and 2015. Over the 5 years, 2,300 new clinics were opened nationally, with the greatest increase in availability in California with 145 new clinics and the greatest number of closures in Iowa at 17.
 
 ## Teen Birth Rate by Age Range (group_bar.html)
 
-This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and  18-19. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies.
+This visualization charts the teen birth rates from 2003 to 2018, separated by ages 15-17 and 18-19 and selectable by state. It can be observed from this chart that the birth rate amongst the teens aged 18-19 years is higher than that of the teens aged 15-17 years; we believed this was an important observation as it may provide a counterpoint to a common bias in regards to this topic. Media often focuses on early teen pregnancies, however the data suggests that these young pregnancies are not representative of the majority of teen pregnancies.
 
+### Original Visualizations
+------
 
 ## Teen Birth Rate 2003–2018 (line_chart.html)
 
@@ -279,7 +275,7 @@ This visualization charts each state’s teen birth rate per 1,000 females aged 
 
 ## Teen Birth Rate by State and County (state_county_bar_chart.html)
 
-This visualization charts the change in the teen birth rate per 1,000 females aged 15-19 from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties with the least and greatest amount of change have been pre-selected. Although most counties reflect the overall trend of declining teen birth rates across the U.S., that change is not true of every county. Counties that experienced an increase in their teen birth rates warrant further investigation; preliminary examination indicated that an increase would occur more often in smaller communities. **Update: **
+This visualization charts the change in the teen birth rate per 1,000 females aged 15-19 from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties with the least and greatest amount of change have been pre-selected. Although most counties reflect the overall trend of declining teen birth rates across the U.S., that change is not true of every county. Counties that experienced an increase in their teen birth rates warrant further investigation; preliminary examination indicated that an increase would occur more often in smaller communities.
 
 
 # Further Questions and Research 

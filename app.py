@@ -239,25 +239,27 @@ def line_chart():
     return render_template("line_chart.html", USData=USData, stateData=stateData)
 
 
+
 @app.route("/group_bar")
 def group_bar():
     session = Session(engine)
 
     # Query for US birth rate and year, filtering for 15-17 and 18-19 year data 
-    resultsBirthRate1517 = session.query(National.year, National.us_rate).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
-    resultsBirthRate1819 = session.query(National.year, National.us_rate).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
+    resultsBirthRate1517 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
+    resultsBirthRate1819 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
     # Use of distinct: https://stackoverflow.com/questions/48102501/remove-duplicates-from-sqlalchemy-query-using-set
 
     # Store separate lists of dictionaries
     birthRate1517 = []
     for r in resultsBirthRate1517: 
-        birthRate1517.append({"rate": r[1], "year": r[0]})
+        birthRate1517.append({"rate": r[1], "year": r[0], "state":r[2]})
     birthRate1819 = []
     for r in resultsBirthRate1819: 
-        birthRate1819.append({"rate": r[1], "year": r[0]})
+        birthRate1819.append({"rate": r[1], "year": r[0], "state":r[2]})
 
     session.close()
     return render_template("group_bar.html", birthRate1517=birthRate1517, birthRate1819=birthRate1819)
+
 
 
 @app.route("/state_county_bar_chart")

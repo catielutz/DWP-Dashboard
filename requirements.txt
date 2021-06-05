@@ -12,3 +12,4 @@ numpy==1.20.2
 SQLAlchemy==1.4.11
 Werkzeug==1.0.1
 sklearn==0.0
+pandas==1.2.4

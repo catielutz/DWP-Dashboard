@@ -93,56 +93,58 @@
         <!--  Beginning of calculator container -->
         <div class="container">
           <p class="h2 border-bottom">Our Machine Learning Model</p>
-          <p>[Insert]</p>
+          <p>The values below have been filled with actual data from your selected county. 
+            These values correlate with the input for the <a href="/aboutdata">machine learning model.</a> 
+            Adjust them to see how the birth rate per 1,000 changes in that county.
+          </p>
         </div>
         <div class="login" id="form">
         <!-- Main Input For Receiving Query to our ML -->
         <!-- 0.2500410024861704, 'percent_uninsured'),(0.06558019560976627, 'clinics_per_capita'),(0.06520519725046772, 'health_dept_per_capita'),-->
           <form id="calculator" action="/predict" method="post">
-            <fieldset>
               <div class="form-group">
                 <label for="clinics_per_capita">Clinics Per Capita: </label>
-                <input id="clinics_per_capita" value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="clinics_per_capita" value="{% if values is defined %}{{values[2]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="title10_clinics_per_capita">Title X Clinics Per Capita: </label>
-                <input id="title10_clinics_per_capita" value="{% if values is defined %}{{values[1]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="title10_clinics_per_capita" value="{% if values is defined %}{{values[3]}}{% endif %}" type="text" size="35%" height="50" name="title10_clinics_per_capita" placeholder="Title X Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="pp_per_capita">Planned Parenthood Per Capita: </label>
-                <input id="pp_per_capita" value="{% if values is defined %}{{values[2]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="pp_per_capita" value="{% if values is defined %}{{values[4]}}{% endif %}" type="text" size="35%" height="50" name="pp_per_capita" placeholder="Planned Parenthood Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="health_dept_per_capita">Health Department Clinics Per Capita: </label>
-                <input id="health_dept_per_capita" value="{% if values is defined %}{{values[3]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="health_dept_per_capita" value="{% if values is defined %}{{values[5]}}{% endif %}" type="text" size="35%" height="50" name="health_dept_per_capita" placeholder="Health Department Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="hospitals_per_capita">Hospitals Per Capita: </label>
-                <input id="hospitals_per_capita" value="{% if values is defined %}{{values[4]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="hospitals_per_capita" value="{% if values is defined %}{{values[6]}}{% endif %}" type="text" size="35%" height="50" name="hospitals_per_capita" placeholder="Hospitals Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="title_10_clients_per_capita">Title X Clients Per Capita: </label>
-                <input id="title_10_clients_per_capita" value="{% if values is defined %}{{values[5]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="title_10_clients_per_capita" value="{% if values is defined %}{{values[7]}}{% endif %}" type="text" size="35%" height="50" name="title_10_clients_per_capita" placeholder="Title X Clients Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="pp_clients_per_capita">Planned Parenthood Clients Per Capita: </label>
-                <input id="pp_clients_per_capita" value="{% if values is defined %}{{values[6]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="pp_clients_per_capita" value="{% if values is defined %}{{values[8]}}{% endif %}" type="text" size="35%" height="50" name="pp_clients_per_capita" placeholder="Planned Parenthood Clients Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="dept_clinic_title10_per_capita">Title X Department Clinic Per Capita: </label>
-                <input id="dept_clinic_title10_per_capita" value="{% if values is defined %}{{values[7]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="dept_clinic_title10_per_capita" value="{% if values is defined %}{{values[9]}}{% endif %}" type="text" size="35%" height="50" name="dept_clinic_title10_per_capita" placeholder="Title X Department Clinic Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="percent_uninsured">Percent of Population Uninsured (00.00): </label>
-                <input id="percent_uninsured" value="{% if values is defined %}{{values[8]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="percent_uninsured" value="{% if values is defined %}{{values[10]}}{% endif %}" type="text" size="35%" height="50" name="percent_uninsured" placeholder="Percent of Population Uninsured (00.00)" required="required" />
               </div>
               <div class="form-group">
                 <label for="SVI_sum_of_indicators">Social Vulnerability Index: </label>
-                <input id="SVI_sum_of_indicators" value="{% if values is defined %}{{values[9]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
+                <input id="SVI_sum_of_indicators" value="{% if values is defined %}{{values[11]}}{% endif %}" type="text" size="35%" height="50" name="SVI_sum_of_indicators" placeholder="Social Vulnerability Index" required="required" />
               </div><br>
-              <button type="submit" class="btn btn-primary btn-block btn-large">Predict the county's teen birth rate:</button>
-              {{ prediction_text }}<br><br>  
-              </fieldset>
+              <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+              <input class="btn btn-primary btn-block btn-large" type="button" style="width:150px;height:40px" value="Reset Calculator" onclick="history.back()">
+              <br><br>{{ prediction_text }}<br><br>  
             </form>
           </div>
         </div><br><br><br><br><br><br><br><br><br><br><br><br>     

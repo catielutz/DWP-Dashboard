@@ -89,114 +89,63 @@
       <div class="col-lg-12 text-center">
         <p class="h1">Teen Birth Rate and Pregnancy Calculator</p>
       </div>
-
       <body style="background: transparent;">
         <!--  Beginning of calculator container -->
         <div class="container">
           <p class="h2 border-bottom">Our Machine Learning Model</p>
-          <p class="h4">Incorporating the Social Vulnerability Index</p>
-
-          <p class ="h6">The strongest correlation we found to teen pregnancy was the CDC’s Social Vulnerability Index (SVI). The
-            SVI is an aggregation of social and demographic data including employment, access to transportation,
-            crowding, and language. It was designed to help officials direct public health and emergency response
-            resources to vulnerable populations.</p>
-
-          <p class="h6">We found that a county’s teen pregnancy rate had a strong, linear relationship with its SVI score (R^2 =
-            .46, P < 10^15).</p>
-            <img src="../static/images/linear_regression.png" alt="regression" class="img">
-              <p class="h6">The SVI is about identifying places where health resources are harder to access, and its correlation
-                with the teen birth rate shows that teen pregnancy is not a moral problem, but one of access to
-                healthcare.</p>
-
-              <p class="h4">Specific Factors in Teen Pregnancy</p>
-
-              <p class="h6">The factors that go into the SVI are complex, and we also wanted to identify some simpler policy issues
-                that affect teen pregnancy. In other words, what recommendations could we make to specifically address
-                teen pregnancy? For this analysis, we created a random forest regression model to analyze the relative
-                importance of each factor and to predict the effects of specific healthcare access issues on teen
-                pregnancy . We used data from the Guttmacher Institute on contraceptive healthcare providers in each
-                county, adjusted to a per capita basis. We also included SVI scores in our model to control for
-                correlation between it and our specific access measures.</p>
-
-              <p class="h6">After SVI, the largest factor we identified in our model was the percent of residents who are uninsured
-                (feature importance = 25.0%) and the number of contraceptive clinics per capita (.07%). Less significant
-                factors include the number of Planned Parenthood clinics per capita (2.6%) and the number of hospitals
-                per capita (0.4%). Model R^2 = .53.</p>
-
-              <p class="h6">Use the calculator below to…</p>
+          <p>[Insert]</p>
         </div>
         <div class="login" id="form">
-          <!-- Main Input For Receiving Query to our ML -->
-          <!-- 0.2500410024861704, 'percent_uninsured'),(0.06558019560976627, 'clinics_per_capita'),(0.06520519725046772, 'health_dept_per_capita'),-->
+        <!-- Main Input For Receiving Query to our ML -->
+        <!-- 0.2500410024861704, 'percent_uninsured'),(0.06558019560976627, 'clinics_per_capita'),(0.06520519725046772, 'health_dept_per_capita'),-->
           <form id="calculator" action="/predict" method="post">
             <fieldset>
               <div class="form-group">
                 <label for="clinics_per_capita">Clinics Per Capita: </label>
-                <input id="clinics_per_capita" value="{% if values is defined %}{{values[0]}}{% endif %}" type="text"
-                  size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="clinics_per_capita" value="{% if values is defined %}{{values[0]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="title10_clinics_per_capita">Title X Clinics Per Capita: </label>
-                <input id="title10_clinics_per_capita" value="{% if values is defined %}{{values[1]}}{% endif %}"
-                  type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="title10_clinics_per_capita" value="{% if values is defined %}{{values[1]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="pp_per_capita">Planned Parenthood Per Capita: </label>
-                <input id="pp_per_capita" value="{% if values is defined %}{{values[2]}}{% endif %}" type="text"
-                  size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="pp_per_capita" value="{% if values is defined %}{{values[2]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="health_dept_per_capita">Health Department Clinics Per Capita: </label>
-                <input id="health_dept_per_capita" value="{% if values is defined %}{{values[3]}}{% endif %}"
-                  type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="health_dept_per_capita" value="{% if values is defined %}{{values[3]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="hospitals_per_capita">Hospitals Per Capita: </label>
-                <input id="hospitals_per_capita" value="{% if values is defined %}{{values[4]}}{% endif %}" type="text"
-                  size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="hospitals_per_capita" value="{% if values is defined %}{{values[4]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="title_10_clients_per_capita">Title X Clients Per Capita: </label>
-                <input id="title_10_clients_per_capita" value="{% if values is defined %}{{values[5]}}{% endif %}"
-                  type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="title_10_clients_per_capita" value="{% if values is defined %}{{values[5]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="pp_clients_per_capita">Planned Parenthood Clients Per Capita: </label>
-                <input id="pp_clients_per_capita" value="{% if values is defined %}{{values[6]}}{% endif %}" type="text"
-                  size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="pp_clients_per_capita" value="{% if values is defined %}{{values[6]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="dept_clinic_title10_per_capita">Title X Department Clinic Per Capita: </label>
-                <input id="dept_clinic_title10_per_capita" value="{% if values is defined %}{{values[7]}}{% endif %}"
-                  type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="dept_clinic_title10_per_capita" value="{% if values is defined %}{{values[7]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="percent_uninsured">Percent of Population Uninsured (00.00): </label>
-                <input id="percent_uninsured" value="{% if values is defined %}{{values[8]}}{% endif %}" type="text"
-                  size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="percent_uninsured" value="{% if values is defined %}{{values[8]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div>
               <div class="form-group">
                 <label for="SVI_sum_of_indicators">Social Vulnerability Index: </label>
-                <input id="SVI_sum_of_indicators" value="{% if values is defined %}{{values[9]}}{% endif %}" type="text"
-                  size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita"
-                  required="required" />
+                <input id="SVI_sum_of_indicators" value="{% if values is defined %}{{values[9]}}{% endif %}" type="text" size="35%" height="50" name="clinics_per_capita" placeholder="Clinics Per Capita" required="required" />
               </div><br>
-              <button type="submit" class="btn btn-primary btn-block btn-large">Predict the county's teen birth
-                rate:</button>
-              {{ prediction_text }}<br><br>
-            </fieldset>
-          </form>
-        </div>
-    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+              <button type="submit" class="btn btn-primary btn-block btn-large">Predict the county's teen birth rate:</button>
+              {{ prediction_text }}<br><br>  
+              </fieldset>
+            </form>
+          </div>
+        </div><br><br><br><br><br><br><br><br><br><br><br><br>     
     <footer>
       <div class="container py-2">
         <div class="row text-center m-3">

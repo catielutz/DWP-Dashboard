@@ -1,21 +1,16 @@
-# Final Project
+# DWP Dashboard
+## An Analysis of Teen Pregnancy in the United States 
 Team members: Tori Arriola, Yifei Cao, Kylee Grant, Leah Handel, Sana Jessani, Catie Lutz, and Rana Saber
 
-# Project Requirements
-1. Machine Learning (Scikit-Learn)
-2. At least two of the following: 
-     
+# Languages & Technologies
+   - Machine Learning (Scikit-Learn)
    - Python Pandas 
    - Python Matplotlib
    - HTML/CSS/Bootstrap
    - JavaScript Plotly 
    - JavaScript D3
    - JavaScript Leaflet
-   - SQL Database
-   - MongoDB Database
-   - Google Cloud SQL
-   - Amazon AWS
-   - Tableau
+   - SQLite Database
 
 # Inspiration and Guiding Questions
 Building upon our [prior work](https://github.com/Kylee-Grant/Project-2), we aim to use machine learning to predict the effect access to contraception and family planning services has on teen pregnancy and birth rates. We hope that the resulting models of this project will help elucidate the most efficacious interventions in the outcomes of teen pregnancies and births.  
@@ -265,7 +260,7 @@ This choropleth map visualizes the average teen birth rate per 1,000 females age
 
 ### Publicly Funded Clinics by County: 2010 vs 2015 (county_census_map.html)
 
-This choropleth map displays the number of publicly funded health clinics available per county during the years 2010 and 2015. Over the 5 years, 2,300 new clinics were opened nationally, with the greatest increase in availability in California with 145 new clinics and the greatest number of closures in Iowa at 17.
+This choropleth map displays the number of publicly funded health clinics available per county during the years 2010 and 2015. Over the 5 years, 2,300 new clinics were opened nationally, with the greatest increase in availability in LA County, CA with 145 new clinics, and the greatest number of closures in Jefferson County, KY & Hidalgo County, TX where 7 clinics per county were shut down.
 
 ### Teen Birth Rate by Age Range (group_bar.html)
 

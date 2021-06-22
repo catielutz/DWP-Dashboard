@@ -77,60 +77,49 @@ def dashboard():
     session = Session(engine)
 
     # This route will prepare all of the visualizations within the dashboard. 
-    results = session.query(National.year, National.age_group, National.us_rate, 
-                        National.state, National.state_rate).order_by(National.year.asc()).all()
-    df = pd.DataFrame(results, columns=['year', 'age', 'usrate', 'state', 'staterate'])
-    
+
     #################################################
     # LINE_CHART 
     #################################################
-    # Organize df to return overall US data and state-specifc by year, filter to return 15-19 year data 
-    linedf = df.loc[df["age"] == '15-19 years']
+    # Query to return overall US data and state-specifc by year, filter to return 15-19 year data 
+    resultsUS = session.query(National.year, National.us_rate).filter(National.age_group == "15-19 years").order_by(National.year.asc()).distinct()
+    resultsState = session.query(National.state, National.year, National.state_rate).filter(National.age_group == "15-19 years").order_by(National.year.asc()).all()
+    # Use of distinct: https://stackoverflow.com/questions/48102501/remove-duplicates-from-sqlalchemy-query-using-set
 
-    # Store separate json dictionaries of data (US overall)
-    USdatadf = linedf[['usrate', 'year']].drop_duplicates()
-    USdatadf.reset_index(drop=True, inplace=True)
-    USdatadf.rename(columns={"usrate": "rate"}, inplace=True)
-    USData = USdatadf.to_json(orient="records")
-    USData = json.loads(USData)
-    
-    # Store separate json dictionaries of data (by state)
-    stateDatadf = linedf[['staterate', 'state', 'year']].drop_duplicates()
-    stateDatadf.reset_index(drop=True, inplace=True)
-    stateDatadf.rename(columns={'staterate': 'rate'}, inplace=True)
-    stateData = stateDatadf.to_json(orient="records")
-    stateData = json.loads(stateData)
+    # Store separate lists of dictionaries
+    USData = []
+    for r in resultsUS: 
+        USData.append({"rate": r[1], "year": r[0]})
+    stateData = []
+    for r in resultsState:
+        stateData.append({"rate": r[2], "state": r[0], "year": r[1]})
+
 
     #################################################
     # GROUP BAR 
     #################################################
     # Query for US birth rate and year, filtering for 15-17 and 18-19 year data 
-    df1517 = df.loc[df["age"] == '15-17 years', ['staterate', 'year', 'state']].drop_duplicates()
-    df1819 = df.loc[df["age"] == '18-19 years', ['staterate', 'year', 'state']].drop_duplicates()
-    df1517us = df.loc[df["age"] == '15-17 years', ['usrate', 'year']].drop_duplicates()
-    df1819us = df.loc[df["age"] == '18-19 years', ['usrate', 'year']].drop_duplicates()
+    resultsBirthRate1517 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
+    resultsBirthRate1819 = session.query(National.year, National.state_rate, National.state).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
+    resultsUSBirthRate1517 = session.query(National.year, National.us_rate).filter(National.age_group == "15-17 years").order_by(National.year.asc()).distinct()
+    resultsUSBirthRate1819 = session.query(National.year, National.us_rate).filter(National.age_group == "18-19 years").order_by(National.year.asc()).distinct()
+    # Use of distinct: https://stackoverflow.com/questions/48102501/remove-duplicates-from-sqlalchemy-query-using-set
 
-    # Store separate json dictionaries of data (by state)
-    df1517.reset_index(drop=True, inplace=True)
-    df1517.rename(columns={'staterate': 'rate'}, inplace=True)
-    birthRate1517 = df1517.to_json(orient="records")
-    birthRate1517 = json.loads(birthRate1517)
-
-    df1819.reset_index(drop=True, inplace=True)
-    df1819.rename(columns={'staterate': 'rate'}, inplace=True)
-    birthRate1819 = df1819.to_json(orient="records")
-    birthRate1819 = json.loads(birthRate1819)
+    # Store separate lists of dictionaries
+    birthRate1517 = []
+    for r in resultsBirthRate1517: 
+        birthRate1517.append({"rate": r[1], "year": r[0], "state":r[2]})
+    birthRate1819 = []
+    for r in resultsBirthRate1819: 
+        birthRate1819.append({"rate": r[1], "year": r[0], "state":r[2]})
     
-    # Store separate json dictionaries of data (US overall)
-    df1517us.reset_index(drop=True, inplace=True)
-    df1517us.rename(columns={'usrate': 'rate'}, inplace=True)
-    USBirthRate1517 = df1517us.to_json(orient="records")
-    USBirthRate1517 = json.loads(USBirthRate1517)
-
-    df1819us.reset_index(drop=True, inplace=True)
-    df1819us.rename(columns={'usrate': 'rate'}, inplace=True)
-    USBirthRate1819 = df1819us.to_json(orient="records")
-    USBirthRate1819 = json.loads(USBirthRate1819)
+    # Overal US dictionary 
+    USBirthRate1517  = []
+    for r in resultsUSBirthRate1517: 
+        USBirthRate1517.append({"rate": r[1], "year": r[0]})
+    USBirthRate1819  = []
+    for r in resultsUSBirthRate1819: 
+        USBirthRate1819.append({"rate": r[1], "year": r[0]})
     
     #################################################
     # STATE_COUNTY_BAR_CHART 
@@ -342,5 +331,5 @@ def countymap():
     return render_template("county_census_map.html")
 
 # Comment this out when not in development
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+#    app.run(debug=True)

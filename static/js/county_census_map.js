@@ -95,9 +95,9 @@ Promise.all(promises).then(function (data) {
         }
     });
 
-    var myMap = L.map("map", {
+    var myMap = L.map("secondmap", {
         center: [39.8283, -98.5795],
-        zoom: 5,
+        zoom: 4,
         layers: [
             census2010
         ]

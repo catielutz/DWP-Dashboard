@@ -94,7 +94,7 @@ const configLine = {
   options: {   
     title: {
       display: true,
-      text: `Teen Birthrate by State vs. US Total, 2003 - 2018`
+      text: `Teen Birth Rate by State vs. US Total (2003-2018)`
     },       
     plugins: {
     legend: false,

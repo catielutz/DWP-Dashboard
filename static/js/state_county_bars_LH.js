@@ -89,7 +89,7 @@ Chart.plugins.register(ChartDataLabels);
         },
         title: {
             display: true,
-            text: 'States with the highest and lowest change in teen birthrate vs. the US, 2003 - 2018'
+            text: 'States with the highest and lowest change in teen birth rate vs. the US (2003-2018)'
           },
           scales: {
             xAxes: [{
@@ -208,7 +208,7 @@ Chart.plugins.register(ChartDataLabels);
             },
             title: {
               display: true,
-              text: `Counties with the highest and lowest change in teen birthrates, 2003 - 2018`
+              text: `Counties with the highest and lowest change in teen birth rates (2003-2018)`
             },
             scales: {
                 xAxes: [{

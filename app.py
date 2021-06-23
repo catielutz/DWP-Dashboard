@@ -60,6 +60,7 @@ app = Flask(__name__)
 def home():
     return redirect ("/dashboard")
 
+
 @app.route("/aboutdata")
 def aboutdata():
     
@@ -342,5 +343,5 @@ def countymap():
     return render_template("county_census_map.html")
 
 # Comment this out when not in development
-#if __name__ == '__main__':
-    #app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

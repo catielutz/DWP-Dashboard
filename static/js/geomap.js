@@ -101,11 +101,13 @@
     }).addTo(myMap);
 
     var baseMaps = {
-      "STATE": STATE,
-      "COUNTY": COUNTY
+      "State": STATE,
+      "County": COUNTY
     };
 
-    L.control.layers(baseMaps, null).addTo(myMap);
+    L.control.layers(baseMaps, null, {
+        collapsed: false
+    }).addTo(myMap);
 
     var stateBirthRateLegend = L.control({ position: "bottomright" });
     stateBirthRateLegend.onAdd = function() {
@@ -159,7 +161,7 @@
   stateBirthRateLegend.addTo(myMap);
 
   myMap.on("baselayerchange", function(activeLayer) {
-    if(activeLayer.name == 'COUNTY') {
+    if(activeLayer.name == 'County') {
       stateBirthRateLegend.remove();
       countyBirthRateLegend.addTo(myMap);
     }

@@ -125,7 +125,7 @@ Promise.all(promises).then(function (data) {
         var labels = [];
 
         // Add the minimum and maximum.
-        var legendInfo = "<h1>Publicly Funded Clinics by County</h1>" + "<h2>2015</h2>" +
+        var legendInfo = "<h1>Publicly Funded Clinics by County (2015)</h1>" +
             "<div class=\"labels\">" +
             "<div class=\"min\">" + limits[0] + "</div>" +
             "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
@@ -149,7 +149,7 @@ Promise.all(promises).then(function (data) {
         var labels = [];
 
         // Add the minimum and maximum.
-        var legendInfo = "<h1>Publicly Funded Clinics by County</h1>" + "<h2>2010</h2>" +
+        var legendInfo = "<h1>Publicly Funded Clinics by County (2010)</h1>" +
             "<div class=\"labels\">" +
             "<div class=\"min\">" + limits[0] + "</div>" +
             "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +

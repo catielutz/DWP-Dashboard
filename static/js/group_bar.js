@@ -79,7 +79,9 @@ function buildPlot(state) {
 
   var data = [trace1, trace2];
 
+  var config = {responsive: true}
+
   var layout = {barmode: 'group', title: ' Teen Birth Rate by Age Group', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
-  Plotly.newPlot('plot', data, layout);
+  Plotly.newPlot('plot', data, layout, config);
 }
 d3.select("#submit").on("click", handleSubmit);

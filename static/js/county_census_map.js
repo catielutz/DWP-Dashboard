@@ -9,14 +9,16 @@ promises.push(d3.json(clinic10URL));
 promises.push(d3.json(clinic15URL));
 promises.push(d3.json(county10URL));
 promises.push(d3.json(county15URL));
+promises.push(county_populations); // Brought to JavaScript through app
 
 Promise.all(promises).then(function (data) {
     console.log(data)
-
+    
     var clinic2010 = data[0];
     var clinic2015 = data[1];
     var county10Info = data[2];
     var county15Info = data[3];
+    var county_populations = data[4]
 
     var clinicAvail10 = {};
     var clinicAvail15 = {};

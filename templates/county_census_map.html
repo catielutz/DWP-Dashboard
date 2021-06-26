@@ -32,7 +32,11 @@
 <body>
   <!-- The div where we'll insert our map -->
   <div id="secondmap"></div>
-
+   <!--Jinja variables-->
+   <script type="text/javascript">
+    var county_populations = '{{ county_populations|tojson }}'
+    var county_populations = JSON.parse(county_populations)
+  </script>
   <!-- JavaScript file -->
   <script type="text/javascript" src="../static/js/county_census_map.js"></script>
 </body>

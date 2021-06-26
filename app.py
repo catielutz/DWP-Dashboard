@@ -339,9 +339,15 @@ def geomap():
 
 @app.route("/county_census_map")
 def countymap():
+
+    # Read in county population data for per capita calculations 
+    county_populationsdf = pd.read_sql_query('SELECT * FROM county_pop', con=engine)
+    county_populationsdf.set_index('index', inplace=True)
+    county_populations = county_populationsdf.to_json(orient="records")
+    county_populations = json.loads(county_populations)
     
-    return render_template("county_census_map.html")
+    return render_template("county_census_map.html", county_populations=county_populations)
 
 # Comment this out when not in development
-#if __name__ == '__main__':
-    #app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -77,7 +77,7 @@ def aboutus():
 def dashboard():
     session = Session(engine)
 
-    # This route will prepare all of the visualizations within the dashboard. 
+    # This route will prepare most of the visualizations within the dashboard. 
     results = session.query(National.year, National.age_group, National.us_rate, 
                         National.state, National.state_rate).order_by(National.year.asc()).all()
     df = pd.DataFrame(results, columns=['year', 'age', 'usrate', 'state', 'staterate'])
@@ -137,34 +137,18 @@ def dashboard():
     # STATE_COUNTY_BAR_CHART 
     #################################################
 
-    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).filter(National.age_group == "15-19 years").all()
-    resultsCountyCSV = session.query(County.state_fips_code, County.state, County.index, County.upper_confidence_limit, County.birth_rate, County.county_fips_code, County.county, County.year, County.lower_confidence_limit, County.combined_fips_code).all()
+    # Using prior query to isolate information for bar chart, looking at state level
+    states = df.loc[df["age"] == '15-19 years', ['staterate', 'year', 'state']].drop_duplicates()
+    states.reset_index(drop=True, inplace=True)
+    states.rename(columns={'staterate': 'state_rate'}, inplace=True)
+    states = states.to_json(orient="records")
+    states = json.loads(states)
 
-    # Store separate lists of dictionaries
-    nationalCSV = []
-    for r in resultsNationalCSV: 
-        nationalCSV.append({
-            'us_births': r[0],
-            'state_rate': r[1],
-            'age_group': r[2],
-            'year': r[3],
-            'us_rate': r[4],
-            'state_births': r[5],
-            'state': r[6],
-            'index': r[7]})
-    countyCSV = []
-    for r in resultsCountyCSV:
-        countyCSV.append({
-            'state_fips_code': r[0],
-            'state': r[1],
-            'index': r[2],
-            'upper_confidence_limit': r[3],
-            'birth_rate': r[4],
-            'county_fips_code': r[5],
-            'county': r[6],
-            'year': r[7],
-            'lower_confidence_limit': r[8],
-            'combined_fips_code': r[9]})
+    # Grabbing county rates
+    resultsCounty = session.query(County.state, County.birth_rate, County.county, County.year).all()
+    countydf = pd.DataFrame(resultsCounty, columns=['state', 'birth_rate', 'county', 'year'])
+    counties = countydf.to_json(orient="records")
+    counties = json.loads(counties)
 
     #################################################
     # COUNTY_CENSUS_MAP
@@ -178,7 +162,7 @@ def dashboard():
 
     session.close()
 
-    return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819, county_populations=county_populations)
+    return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, counties=counties, states=states, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819, county_populations=county_populations)
 
 
 @app.route("/calculator/<county>", methods=["GET"])
@@ -307,38 +291,23 @@ def state_county_bar():
     
     session = Session(engine)
 
-    # Query to return entire datasets 
-    resultsNationalCSV = session.query(National.us_births, National.state_rate, National.age_group, National.year, National.us_rate, National.state_births, National.state, National.index).filter(National.age_group == "15-19 years").all()
-    resultsCountyCSV = session.query(County.state_fips_code, County.state, County.index, County.upper_confidence_limit, County.birth_rate, County.county_fips_code, County.county, County.year, County.lower_confidence_limit, County.combined_fips_code).all()
+    # Query for state-level birth rate information 
+    results = session.query(National.year, National.age_group, National.state, National.state_rate).order_by(National.year.asc()).all()
+    df = pd.DataFrame(results, columns=['year', 'age', 'state', 'state_rate'])
+    
+    states = df.loc[df["age"] == '15-19 years', ['state_rate', 'year', 'state']].drop_duplicates()
+    states.reset_index(drop=True, inplace=True)
+    states = states.to_json(orient="records")
+    states = json.loads(states)
 
-    # Store separate lists of dictionaries
-    nationalCSV = []
-    for r in resultsNationalCSV: 
-        nationalCSV.append({
-            'us_births': r[0],
-            'state_rate': r[1],
-            'age_group': r[2],
-            'year': r[3],
-            'us_rate': r[4],
-            'state_births': r[5],
-            'state': r[6],
-            'index': r[7]})
-    countyCSV = []
-    for r in resultsCountyCSV:
-        countyCSV.append({
-            'state_fips_code': r[0],
-            'state': r[1],
-            'index': r[2],
-            'upper_confidence_limit': r[3],
-            'birth_rate': r[4],
-            'county_fips_code': r[5],
-            'county': r[6],
-            'year': r[7],
-            'lower_confidence_limit': r[8],
-            'combined_fips_code': r[9]})
+    # Grabbing county rates
+    resultsCounty = session.query(County.state, County.birth_rate, County.county, County.year).all()
+    countydf = pd.DataFrame(resultsCounty, columns=['state', 'birth_rate', 'county', 'year'])
+    counties = countydf.to_json(orient="records")
+    counties = json.loads(counties)
            
     session.close()
-    return render_template("state_county_bar_chart.html", countyCSV=countyCSV, nationalCSV=nationalCSV)
+    return render_template("state_county_bar_chart.html", counties=counties, states=states)
 
 
 @app.route("/geomap")
@@ -359,5 +328,5 @@ def countymap():
     return render_template("county_census_map.html", county_populations=county_populations)
 
 # Comment this out when not in development
-#if __name__ == '__main__':
-    #app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

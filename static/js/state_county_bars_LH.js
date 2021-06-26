@@ -1,13 +1,10 @@
 // see data in console 
-console.log(countyCSV)
-console.log(nationalCSV)
+console.log(states);
+console.log(counties);
 
 // bonus chart.js plugin for datalabels
 
 Chart.plugins.register(ChartDataLabels);
-
-
-    var states = nationalCSV;
 
     // organizing data for states graph: creating an array of objects, one object per state plus the total US. 
     // objects have name, change, bar color. 
@@ -112,8 +109,6 @@ Chart.plugins.register(ChartDataLabels);
 
 
     //////////// now doing it for IL Counties
-
-    var counties = countyCSV;
 
     var input = "Illinois"
 

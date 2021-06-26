@@ -43,10 +43,10 @@
 <script src = "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <!--Jinja variables-->
 <script type="text/javascript">
-    var countyCSV = '{{ countyCSV|tojson }}'
-    var countyCSV = JSON.parse(countyCSV)
-    var nationalCSV = '{{ nationalCSV|tojson }}'
-    var nationalCSV = JSON.parse(nationalCSV)
+    var counties = '{{ counties|tojson }}'
+    var counties = JSON.parse(counties)
+    var states = '{{ states|tojson }}'
+    var states = JSON.parse(states)
 </script>
 <!--Connect to JavaScript Document-->
 <script type="text/javascript" src="static/js/state_county_bars_LH.js"></script>

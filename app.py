@@ -166,9 +166,19 @@ def dashboard():
             'lower_confidence_limit': r[8],
             'combined_fips_code': r[9]})
 
+    #################################################
+    # COUNTY_CENSUS_MAP
+    #################################################
+
+    # Read in county population data for per capita calculations 
+    county_populationsdf = pd.read_sql_query('SELECT * FROM county_pop', con=engine)
+    county_populationsdf.set_index('index', inplace=True)
+    county_populations = county_populationsdf.to_json(orient="records")
+    county_populations = json.loads(county_populations)
+
     session.close()
 
-    return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819)
+    return render_template("dashboard.html", USData=USData, stateData=stateData, birthRate1517=birthRate1517, birthRate1819=birthRate1819, countyCSV=countyCSV, nationalCSV=nationalCSV, USBirthRate1517=USBirthRate1517, USBirthRate1819=USBirthRate1819, county_populations=county_populations)
 
 
 @app.route("/calculator/<county>", methods=["GET"])

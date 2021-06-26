@@ -249,6 +249,7 @@
     <!-- <script type="text/javascript" src="../static/js/choropleth.js"></script> -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+    <!--Variables-->
     <script type="text/javascript">
       var birthRate1517 = '{{ birthRate1517|tojson }}'
       var birthRate1517 = JSON.parse(birthRate1517)
@@ -272,6 +273,11 @@
       var countyCSV = JSON.parse(countyCSV)
       var nationalCSV = '{{ nationalCSV|tojson }}'
       var nationalCSV = JSON.parse(nationalCSV)
+    </script>
+
+    <script type="text/javascript">
+      var county_populations = '{{ county_populations|tojson }}'
+      var county_populations = JSON.parse(county_populations)
     </script>
 
     <script type="text/javascript" src="../static/js/line_Chart_LH.js"></script>

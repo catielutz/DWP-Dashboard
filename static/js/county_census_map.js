@@ -67,8 +67,8 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-            color: "#fff",
-            weight: 1,
+            color: "#000",
+            weight: 0.5,
             fillOpacity: 0.8
         },
 
@@ -86,8 +86,8 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-            color: "#fff",
-            weight: 1,
+            color: "#000",
+            weight: 0.5,
             fillOpacity: 0.8
         },
 

@@ -230,7 +230,7 @@ def predict():
     prediction = prediction_raw[0]
     prediction = round(prediction, 0)
     
-    return render_template('machinelearning.html', values=final_features, prediction_text="  The teen birth rate would be {} per 1,000".format(prediction))
+    return render_template('machinelearning.html', values=final_features, prediction_text="  The teen birth rate would be {} per 1,000.".format(prediction))
 
 
 @app.route("/line_chart")
@@ -328,5 +328,5 @@ def countymap():
     return render_template("county_census_map.html", county_populations=county_populations)
 
 # Comment this out when not in development
-#if __name__ == '__main__':
-    #app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

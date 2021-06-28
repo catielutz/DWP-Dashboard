@@ -56,7 +56,7 @@
       mode:"q",
       style:{
         color: "#fff",
-        weight: 1,
+        weight: 0.5,
         fillOpacity: 0.8
       },
     
@@ -76,7 +76,7 @@
       mode:"q",
       style:{
         color: "#fff",
-        weight: 1,
+        weight: 0,
         fillOpacity: 0.8
       },
 
@@ -89,7 +89,7 @@
 
     var myMap = L.map("map", {
       center: [39.8283, -98.5795],
-      zoom: 4,
+      zoom: 3,
       layers: [
         STATE,
       ]

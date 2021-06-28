@@ -22,7 +22,74 @@ Promise.all(promises).then(function (data) {
 
     var clinicAvail10 = {};
     var clinicAvail15 = {};
+    var test = "test";
 
+    // Attempt A: 
+    /*for (let row = 0; row < clinic2010.data.length; row++){
+        var view = clinic2010.data;
+        var currentState = view[row].State;
+        var currentCounty = view[row].County;
+          
+        for (let count = 0; count < county_populations.length; count++){
+          //  console.log(test);
+            if (String(county_populations[count].state) == String(currentState) && String(county_populations[count].county) == String(currentCounty)) {
+                var population = county_populations[count];
+                console.log(population);
+              
+            }}};
+        //clinic2010[row].push(population)};
+
+    console.log(county_populations.length);*/
+
+    // Adding per capita info to clinic data: https://stackoverflow.com/questions/31831651/javascript-filter-array-multiple-conditions
+    clinic2010.data.forEach(function (clinic10Data) {
+        /*
+        // Attempt B:
+        currentState = clinic10Data["State"];
+        currentCounty = clinic10Data["County"];
+
+        filter = {
+            State: clinic10Data["State"], 
+            County: clinic10Data["County"]
+        };
+
+        var popList = county_populations.filter((d) => d.state == currentState && d.county == currentCounty);
+        var population = popList.map(function(d) { return d.population_2010;});
+        console.log(popList) 
+    
+        // Attempt C: 
+        var stateList = county_populations.filter((d) => d.state == filter.State);
+        var countyList = stateList.filter((d) => d.county == filter.County);
+        var population = countyList.map(function(d) { return d.population_2010;});
+        
+        // Attempt D: 
+        var stateList = county_populations.filter((d) => d.state == filter.State);
+        var countyList = stateList.filter((d) => d.county == filter.County);
+        var population = countyList.map(function(d) { return d.population_2010;});
+        clinic10Data["Population"] = +countyList.population_2010;
+
+        // Attempt E: 
+        var population = county_populations.filter((d) => d.state == filter.State && d.county == filter.County);
+        population = county_populations.filter(function(item) {
+            for (var key in filter) {
+              if (item[key] == filter[key]) {
+                return true;
+            } else {
+            return false;}
+          }});
+
+        // Attempt F: 
+        let population = county_populations.filter(function (popinfo) {
+            if (popinfo.county == filter.County) {
+                return popinfo.population_2010;
+            } /*&& popinfo.state == filter.State*/;
+        //}).map(function (popinfo) {
+        //    return popinfo.population_2010;
+        // });
+
+        //clinic10Data.data['Population'] = +population; 
+    }); 
+    
     // Adding FIPS to countyInfo
     county10Info.features.forEach(function (county10ID) {
         county10ID.properties['FIPS'] = county10ID.properties.STATE + county10ID.properties.COUNTY;
@@ -58,7 +125,7 @@ Promise.all(promises).then(function (data) {
         let clinic15Val = clinicAvail15[county15ID.properties.FIPS];
         county15ID.properties['Pub_Fund_Clinics'] = +clinic15Val;
     });
-
+    
     var census2010;
 
     census2010 = L.choropleth(county10Info, {
@@ -68,7 +135,7 @@ Promise.all(promises).then(function (data) {
         mode: "q",
         style: {
             color: "#fff",
-            weight: 1,
+            weight: 0,
             fillOpacity: 0.8
         },
 
@@ -87,7 +154,7 @@ Promise.all(promises).then(function (data) {
         mode: "q",
         style: {
             color: "#fff",
-            weight: 1,
+            weight: 0,
             fillOpacity: 0.8
         },
 
@@ -99,7 +166,7 @@ Promise.all(promises).then(function (data) {
 
     var myMap = L.map("secondmap", {
         center: [39.8283, -98.5795],
-        zoom: 4,
+        zoom: 3,
         layers: [
             census2010
         ]
@@ -180,4 +247,4 @@ Promise.all(promises).then(function (data) {
             census2010Legend.addTo(myMap);
         }
     })
-});
+}); 

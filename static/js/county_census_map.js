@@ -134,9 +134,9 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-            color: "#fff",
-            weight: 0,
-            fillOpacity: 0.8
+        color: "#000",
+        weight: 0.5,
+        fillOpacity: 0.8
         },
 
         onEachFeature: function (feature, layer) {
@@ -153,9 +153,9 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-            color: "#fff",
-            weight: 0,
-            fillOpacity: 0.8
+        color: "#000",
+        weight: 0.5,
+        fillOpacity: 0.8
         },
 
         onEachFeature: function (feature, layer) {

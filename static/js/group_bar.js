@@ -85,3 +85,4 @@ function buildPlot(state) {
   Plotly.newPlot('plot', data, layout, config);
 }
 d3.select("#submit").on("click", handleSubmit);
+

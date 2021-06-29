@@ -134,14 +134,14 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-        color: "#000",
-        weight: 0.5,
+        color: "#808080",
+        weight: 0.25,
         fillOpacity: 0.8
         },
 
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
-                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br><a href='/calculator/" + feature.properties.FIPS + "'><button id='calc' type='button' class='btn btn-secondary'>Calculate</button></a>");
         }
     });
 
@@ -153,14 +153,14 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-        color: "#000",
-        weight: 0.5,
+        color: "#808080",
+        weight: 0.25,
         fillOpacity: 0.8
         },
 
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
-                feature.properties.Pub_Fund_Clinics + "<br>Year: 2015<br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2015<br><a href='/calculator/" + feature.properties.FIPS + "'><button id='calc' type='button' class='btn btn-secondary'>Calculate</button></a>");
         }
     });
 

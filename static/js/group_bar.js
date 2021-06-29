@@ -81,8 +81,7 @@ function buildPlot(state) {
 
   var config = {responsive: true}
 
-  var layout = {barmode: 'group', title: ' Teen Birth Rate by Age Group', yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
+  var layout = {barmode: 'group', title: {text:'Teen Birth Rate by Age Range', font: {family: 'Arial, monospace', size: 15}}, yaxis: {title: "Birth Rate"}, xaxis: {title:"Years", tickmode :"linear"}};
   Plotly.newPlot('plot', data, layout, config);
 }
 d3.select("#submit").on("click", handleSubmit);
-

@@ -80,11 +80,18 @@
 
   <div>
     <div id='plot'></div>
+    <div class="row">
+    <div class="col-lg-4">
     <form class="form-inline" style="padding-left:40px;">
       <div class="form-group">
-        <label for="stateInput">State:</label>
+        <label for="stateInput">Type a state:</label>
         <input type="text" class="form-control" id="stateInput" placeholder="United States">
-        </div><br>
+        </div></div>
+      <div class="col-lg-4">
+        <button id="submit" type="submit" class="btn btn-secondary">Plot</button>
+      </div>
+  </div>
+  </div>
 
     <!--Jinja variables-->
     <script type="text/javascript">

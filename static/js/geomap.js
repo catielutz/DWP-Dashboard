@@ -55,8 +55,8 @@
       steps: 10,
       mode:"q",
       style:{
-        color: "#fff",
-        weight: 0.5,
+        color: "#A9A9A9",
+        weight: 1.5,
         fillOpacity: 0.8
       },
     
@@ -75,15 +75,15 @@
       steps: 10,
       mode:"q",
       style:{
-        color: "#fff",
-        weight: 0,
+        color: "#808080",
+        weight: 0.25,
         fillOpacity: 0.8
       },
 
       onEachFeature: function(feature, layer) {
         layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" +"Teen Birth Rate<br>" +
           feature.properties.birthRateVal + " per 1,000 " +
-          "<br>Years: 2003-2018<br><br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+          "<br>Years: 2003-2018<br><a href='/calculator/" + feature.properties.FIPS + "'><button id='calc' type='button' class='btn btn-secondary'>Calculate</button></a>");
       }
     });
 

@@ -79,14 +79,12 @@
           <div class="card-header">
             <div>
               <h6 class="card-title text-center border-bottom">Teen Birth Rates Per Capita</h6>
-              <p class="card-text">Highest concentration of birth rates are found in the South and central areas of the
-                U.S. Lowest birth rate concentrations are found in Northeastern areas.</p>
+              <p class="card-text">This choropleth map visualizes the average teen birth rate per 1,000 females age 15-19 for each state from 2003 to 2018. 
+                The highest concentration of birth rates are found in the South of the United States, whereas the lowest birth rates are concentrated in Northeast.</p>
               <p class="card-text text-center"> <a href="geomap">Explore the map in greater detail and predict the teen birth rate by county.</a></p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
-            <p class="card-text">This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19
-              for each state from 2003 to 2018.</p>
             <div id="map" class="leaflet-container" style="height: 400px; outline:none"></div>
           </div><!-- flot-chart-wrapper -->
         </div><!-- card-body -->
@@ -97,14 +95,13 @@
           <div class="card-header">
             <div>
               <h6 class="card-title mb-2 text-center border-bottom">Publicly Funded Clinics Per Capita</h6>
-              <p class="card-text">Over the past 5 years, 2,300 new clinics were opened nationally, with the greatest
-                number of openings in California (145) and closures in Iowa (17).</p>
+              <p class="card-text">This choropleth map displays the number of publicly funded health clinics available per
+                county in 2010 and 2015. In the 5 years between 2010 and 2015, 2,300 new clinics were opened nationally, with the greatest
+                number of openings in the state of California (145) and closures in Iowa (17).</p>
               <p class="card-text text-center"><a href="county_census_map">Explore the map in greater detail and predict the teen birth rate by county.</a></p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
-            <p class="card-text">This choropleth map displays the number of publicly funded health clinics available per
-              county during the years 2010 and 2015.</p>
             <div id="secondmap" class="leaflet-container" style="height: 400px; outline:none"></div>
           </div><!-- flot-chart-wrapper -->
         </div><!-- card-body -->
@@ -115,13 +112,13 @@
           <div class="card-header">
             <div>
               <h6 class="card-title text-center border-bottom">Teen Birth Rate by State vs. US</h6>
-              <p class="card-text">Decreasing teen birth rates from 2003 to 2018.</p>
+              <p class="card-text">This visualization charts each state’s birth rate per 1,000 females age 15-19 by
+                year from 2003 to 2018, compared to the overall US teen birth rate. The teen birth rate has been steadily decreasing from 2003 to 2018, 
+                which mirrors an overall trend for birth rates in the US.</p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
             <div class="flot-chart-wrapper m-2">
-              <p class="card-text">This visualization charts each state’s teen birth rate per 1,000 females aged 15-19 by
-                year from 2003 to 2018. </p>
               <canvas id="myChart" class="flot-chart"></canvas>
               <div class="row m-3">
                 <br>
@@ -145,14 +142,13 @@
           <div class="card-header">
             <div>
               <h6 class="card-title text-center border-bottom">Teen Birth Rate by Age Range</h6>
-              <p class="card-text">Birth rate among teens aged 18-19 years is higher than that of teens aged 15-17
-                years.</p>
+              <p class="card-text">This visualization charts the teen birth rates from 2003 to 2018, separated by ages
+                15-17 and 18-19. The birth rate among teens aged 18-19 years is considerably higher than that of teens aged 15-17
+                years. This reflects that, despite a proliferation of media focused on young mothers, a majority of teen mothers are older than 18 when they give birth. </p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
             <div class="flot-chart-wrapper">
-              <p class="card-text">This visualization charts the teen birth rates from 2003 to 2018, separated by ages
-                15-17 and 18-19. </p>
               <div id="plot" style="height: 322px;"></div>
             </div>
           </div><!-- card-body -->
@@ -164,15 +160,14 @@
         <div class="card-header">
           <div>
             <h6 class="card-title text-center border-bottom">Birth Rate Trends by State and County</h6>
-            <p class="card-text">Although most counties reflect the overall trend of declining teen birth rates across
-              the U.S., that change is not true of every county. </p>
+            <p class="card-text">This visualization charts the change in the birth rate per 1,000 teens aged 15-19
+              from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties
+              with the least and greatest amount of change will be pre-selected for any entered state. Although most counties reflect the overall trend of declining teen birth rates across
+              the US, that change is not true of every county. This reveals that the factors contributing to the declining birth rate may not be equally present from county to county.</p>
           </div>
         </div><!-- card-header -->
         <div class="card-body">
           <div class="flot-chart-wrapper m-2">
-            <p class="card-text">This visualization charts the change in the teen birth rate per 1,000 females aged 15-19
-              from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties
-              with the least and greatest amount of change have been pre-selected. </p>
             <canvas id="stateChart"></canvas>
             <br>
             <div class="row">
@@ -197,12 +192,18 @@
         <div class="card-header">
           <div>
             <h6 class="card-title text-center border-bottom">Sources</h6>
-            <p class="card-text">Sources are explained in greater detail here.</p>
+            <p class="card-text">Our sources are explained in greater detail <a href="/aboutdata">here</a>.</p>
           </div>
         </div><!-- card-header -->
         <div class="card-body" id="further-reading">
           <ul class="list-group list-group-flush">
-            <a href="https://www.chicagotribune.com/news/breaking/ct-illinois-abortion-numbers-increase-20210528-s5ddpbvcw5dk3ckwx5p5xv2d5m-story.html" target="_blank" class="grow" class="list-group-item list-group-item-action">[TEXT]</a><br>
+            <a href="https://eric.clst.org/tech/usgeojson/" target="_blank" class="grow" class="list-group-item list-group-item-action">Cartographic Boundary Files (US Census)</a><br>
+            <a href="https://www.guttmacher.org/report/publicly-funded-contraceptive-services-us-clinics-2015" target="_blank" class="grow" class="list-group-item list-group-item-action">Publicly Funded Contraceptive Services at U.S. Clinics (Guttmacher Institute, 2015 and 2010)</a><br>
+            <a href="https://www.guttmacher.org/report/publicly-supported-FP-services-US-2016" target="_blank" class="grow" class="list-group-item list-group-item-action">Publicly Supported Family Planning Services in the United States: Likely Need, Availability and Impact (Guttmacher Institute, 2016)</a><br>
+            <a href="https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html" target="_blank" class="grow" class="list-group-item list-group-item-action">Social Vulnerability Index (CDC/Agency for Toxic Substances and Disease Registry, 2018)</a><br>
+            <a href="https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html" target="_blank" class="grow" class="list-group-item list-group-item-action">State Population Totals and Components of Change (Census Bureau, 2010-2019)</a><br>
+            <a href="https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county" target="_blank" class="grow" class="list-group-item list-group-item-action">Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018)</a><br>
+            <a href="https://catalog.data.gov/dataset/nchs-u-s-and-state-trends-on-teen-births" target="_blank" class="grow" class="list-group-item list-group-item-action">U.S. and State Trends on Teen Births (NCHS, 2018)</a><br>
           </ul>
         </div><!-- card-body -->
         <div class="card-header">
@@ -213,7 +214,7 @@
         </div><!-- card-header -->
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <a href="https://www.nytimes.com/interactive/2018/08/04/upshot/up-birth-age-gap.html?mtrref=undefined&assetType=PAYWALL" target="_blank" class="grow" class="list-group-item list-group-item-action">The Age That Women Have Babies: How a Gap Divides America</a><br>
+            <a href="https://www.nytimes.com/interactive/2018/08/04/upshot/up-birth-age-gap.html" target="_blank" class="grow" class="list-group-item list-group-item-action">The Age That Women Have Babies: How a Gap Divides America (New York Times, 2018)</a><br>
             <a href="https://www.chicagotribune.com/news/breaking/ct-illinois-abortion-numbers-increase-20210528-s5ddpbvcw5dk3ckwx5p5xv2d5m-story.html" target="_blank" class="grow" class="list-group-item list-group-item-action">Abortions in Illinois Increased Almost 10% in One Year, with More than 7,500 Women Traveling Here from Out of State. (Chicago Tribune, 2021)</a><br>
             <a href="https://www.icah.org/blog/healthcare-rights-of-youth-in-illinois" target="_blank" class="grow" class="list-group-item list-group-item-action">Healthcare Rights of Youth in Illinois (Illinois Caucus for Adolescent Health, 2018)</a><br>
             <a href="https://www.nytimes.com/2021/06/16/us/declining-birthrate-motherhood.html" target="_blank" class="grow" class="list-group-item list-group-item-action">Why American Women Everywhere Are Delaying Motherhood (New York Times, 2021)</a><br>

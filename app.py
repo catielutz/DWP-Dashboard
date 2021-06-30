@@ -218,19 +218,23 @@ def calc(county):
     prefill_values=calculator_prefill.values
     values=prefill_values[0]
     
-    return render_template('machinelearning.html', values=values)
+    return render_template('machinelearning.html', values=values, county_fips=county_fips)
  
 
 @app.route("/predict",methods=['POST']) # Post sends data to the server and returns it
 def predict():
 
     float_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(float_features)]
+    raw_features = [np.array(float_features)]
+    print(raw_features)
+    county_fips = int(raw_features[0][0])
+    final_features = [raw_features[0][1:]]
+    print(final_features)
     prediction_raw = model.predict(final_features)
     prediction = prediction_raw[0]
     prediction = round(prediction, 0)
     
-    return render_template('machinelearning.html', values=final_features, prediction_text="  The teen birth rate would be {} per 1,000.".format(prediction))
+    return render_template('machinelearning.html', county_fips=county_fips, values=final_features, prediction_text="  The teen birth rate would be {} per 1,000.".format(prediction))
 
 
 @app.route("/line_chart")
@@ -328,5 +332,5 @@ def countymap():
     return render_template("county_census_map.html", county_populations=county_populations)
 
 # Comment this out when not in development
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

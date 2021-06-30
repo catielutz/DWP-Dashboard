@@ -18,19 +18,20 @@ Promise.all(promises).then(function (data) {
     var clinic2015 = data[1];
     var county10Info = data[2];
     var county15Info = data[3];
-    var county_populations = data[4]
+    //var county_populations = data[4]
 
     var clinicAvail10 = {};
     var clinicAvail15 = {};
 
     // Adding per capita info to clinic data: https://stackoverflow.com/questions/31831651/javascript-filter-array-multiple-conditions
-    clinic2010.data.forEach(function (clinic10Data) {
+    /*clinic2010.data.forEach(function (clinic10Data) {
         
-        var popList = county_populations.filter((d) => d.FIPS == clinic10Data["FIPS"]);
-        //clinic10Data.properties['Population'] = +popList.population_2010;
-        console.log(popList);
+        var popList = county_populations.filter((d) => toString(d.FIPS) == clinic10Data["FIPS"]);
+        var population = +popList.population_2010;
+        console.log(population);
+        clinic10Data.properties['Population'] = +popList.population_2010;
 
-    }); 
+    });*/
     
     // Check to see if information was added 
     console.log(clinic2010);

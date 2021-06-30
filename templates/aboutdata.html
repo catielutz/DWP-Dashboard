@@ -115,10 +115,10 @@
                       <p class="h6">The Guttmacher Institute estimated for 2016 for the following key indicators measuring the likely need for, actual provision of, and the impact of publicly supported
                       contraceptive/sexual and reproductive health services:</p>
                       
-                      <p class="h6 m-2">A. The numbers of women likely in need of public support for contraceptive services according to age, income level, race and ethnicity, and health insurance status.
-                      <br><br>B. The numbers of women who received contraceptive services at all publicly supported family planning providers.
-                      <br><br>C. The numbers of reproductive health outcomes prevented among women who received publicly supported contraceptive care, such as pregnancies as well as STIs. 
-                      <br><br>D. The cost savings in public funds that result from preventing negative health outcomes.</p>
+                      <p class="h6 m-2">1. The numbers of women likely in need of public support for contraceptive services according to age, income level, race and ethnicity, and health insurance status.
+                      <br><br>2. The numbers of women who received contraceptive services at all publicly supported family planning providers.
+                      <br><br>3. The numbers of reproductive health outcomes prevented among women who received publicly supported contraceptive care, such as pregnancies as well as STIs. 
+                      <br><br>4. The cost savings in public funds that result from preventing negative health outcomes.</p>
                       
                       <p class="h6">The dataset was based on information from data from the U.S. Census Bureau in 2016, the 2014–2016 American Community Survey (ACS), and the 2011–2015 National Survey of Family Growth (NSFG).</p>
                     </div>
@@ -213,36 +213,10 @@
           <br>
 
           <p class="h2 border-bottom">Our Machine Learning Model</p>
-          <p class="h5 mx-5">[TEXT]</p>
+          <p class="h5 mx-5">We used a random forest regression model to analyze the effect of specific measures of access to contraceptive care as well as community vulnerability on the teen birth rate. 
+            Of the specific factors fed into our model, overall community vulnerability, insurance status, and the number of clinics per capita had the greatest feature importances.</p>
           <div class="accordion">
-            <div class="accordion-item m-4">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
-                  Incorporating the Social Vulnerability Index
-                </button>
-              </h2>
-              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p class="h6">The strongest correlation we found to teen pregnancy was the CDC’s Social Vulnerability Index (SVI). The
-                    SVI is an aggregation of social and demographic data including employment, access to transportation,
-                    crowding, and language. It was designed to help officials direct public health and emergency response
-                    resources to vulnerable populations.</p>
-                    <br>
-
-                <p class="h6">We found that a county’s teen pregnancy rate had a strong, linear relationship with its SVI score (R^2 =
-                  .46, P < 10^15).</p>
-                  <br>
-                  <img src="../static/images/linear_regression.png" alt="regression" class="img">
-                  <br>
-                  <p class="h6">The SVI is about identifying places where health resources are harder to access, and its correlation
-                    with the teen birth rate shows that teen pregnancy is not a moral problem, but one of access to
-                    healthcare.</p>
-                </div>
-              </div>
-            </div>
-
+            
             <div class="accordion-item m-4">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -260,11 +234,51 @@
                     pregnancy. We used data from the Guttmacher Institute on contraceptive healthcare providers in each
                     county, adjusted to a per capita basis. We also included SVI scores in our model to control for
                     correlation between it and our specific access measures.</p>
-                    <br>
                   <p class="h6">After SVI, the largest factor we identified in our model was the percent of residents who are uninsured
                     (feature importance = 25.0%) and the number of contraceptive clinics per capita (.07%). Less significant
                     factors include the number of Planned Parenthood clinics per capita (2.6%) and the number of hospitals
                     per capita (0.4%). Model R^2 = .53.</p>
+                  <p class="h6">
+                    <b>Machine Learning Model Factors:</b><br><br>
+                    1. Clinics Per Capita<br><br>
+                    2. Title X Clinics Per Capita<br><br>
+                    3. Planned Parenthood Per Capita<br><br>
+                    4. Health Department Clinics Per Capita<br><br>
+                    5. Hospitals Per Capita<br><br>
+                    6. Title X Clients Per Capita<br><br>
+                    7. Planned Parenthood Clients Per Capita<br><br>
+                    8. Title X Department Clinic Per Capita<br><br>
+                    9. Percent of Population Uninsured (00.00)<br><br>
+                    10. Social Vulnerability Index<br><br><br>
+                    Although not all factors can be edited in our interactive calculator, all factors are fed into the prediction tool. 
+                    The factors that cannot be edited by users are automatically filled out with the data of the selected county. 
+                  </p>
+                </div>
+              </div>
+            </div>
+           
+            <div class="accordion-item m-4">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+                  Incorporating the Social Vulnerability Index
+                </button>
+              </h2>
+              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p class="h6">The strongest correlation we found to teen pregnancy was the CDC’s Social Vulnerability Index (SVI). The
+                    SVI is an aggregation of social and demographic data including employment, access to transportation,
+                    crowding, and language. It was designed to help officials direct public health and emergency response
+                    resources to vulnerable populations.</p>
+                  <p class="h6">We found that a county’s teen pregnancy rate had a strong, linear relationship with its SVI score (R^2 =
+                    .46, P < 10^15).</p>
+                  <br>
+                  <img src="../static/images/linear_regression.png" alt="regression" class="img-fluid">
+                  <br>
+                  <p class="h6">The SVI is about identifying places where health resources are harder to access, and its correlation
+                    with the teen birth rate shows that teen pregnancy is not a moral problem, but one of access to
+                    healthcare.</p>
                 </div>
               </div>
             </div>
@@ -273,7 +287,6 @@
       </div>
     </div>
   </div>
-
 
   <footer>
     <div class="container py-2">

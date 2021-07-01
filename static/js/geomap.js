@@ -55,8 +55,8 @@
       steps: 10,
       mode:"q",
       style:{
-        color: "#fff",
-        weight: 1,
+        color: "#A9A9A9",
+        weight: 1.5,
         fillOpacity: 0.8
       },
     
@@ -75,21 +75,21 @@
       steps: 10,
       mode:"q",
       style:{
-        color: "#fff",
-        weight: 1,
+        color: "#808080",
+        weight: 0.25,
         fillOpacity: 0.8
       },
 
       onEachFeature: function(feature, layer) {
         layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" +"Teen Birth Rate<br>" +
           feature.properties.birthRateVal + " per 1,000 " +
-          "<br>Years: 2003-2018<br><br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+          "<br>Years: 2003-2018<br><a href='/calculator/" + feature.properties.FIPS + "'><button id='calc' type='button' class='btn btn-secondary'>Calculate</button></a>");
       }
     });
 
     var myMap = L.map("map", {
       center: [39.8283, -98.5795],
-      zoom: 5,
+      zoom: 3,
       layers: [
         STATE,
       ]
@@ -101,11 +101,13 @@
     }).addTo(myMap);
 
     var baseMaps = {
-      "STATE": STATE,
-      "COUNTY": COUNTY
+      "State": STATE,
+      "County": COUNTY
     };
 
-    L.control.layers(baseMaps, null).addTo(myMap);
+    L.control.layers(baseMaps, null, {
+        collapsed: false
+    }).addTo(myMap);
 
     var stateBirthRateLegend = L.control({ position: "bottomright" });
     stateBirthRateLegend.onAdd = function() {
@@ -159,7 +161,7 @@
   stateBirthRateLegend.addTo(myMap);
 
   myMap.on("baselayerchange", function(activeLayer) {
-    if(activeLayer.name == 'COUNTY') {
+    if(activeLayer.name == 'County') {
       stateBirthRateLegend.remove();
       countyBirthRateLegend.addTo(myMap);
     }

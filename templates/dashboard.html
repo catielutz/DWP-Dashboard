@@ -3,93 +3,66 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DWP: Dashboard</title>
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <title>Dashboard</title>
+  <link rel="shortcut icon" type="image/jpg" href="../static/images/Northwestern University favicon.png"/>
 
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap Core CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin="" />
 
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
 
+  <!-- Leaflet JavaScript Code -->
+  <script type="text/javascript" src="../static/js/choropleth.js"></script>
 
-  <!-- Custom styles for this template -->
+  <!-- D3 Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"
+  integrity="sha512-L5K9Bf852XyB+wrvRFGwWzfhVI+TZqJlgwzX9yvrfhILuzIZfrcQO4au9D9eVDnkQ6oqYr9v2QwJdFo+eKE50Q=="
+  crossorigin="anonymous"></script>
+
+  <!-- CSS Files -->
   <link href="../static/css/reset.css" rel="stylesheet">
   <link href="../static/css/simple-sidebar.css" rel="stylesheet">
   <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+  <link href="../static/css/clinic-style.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol id="bootstrap" viewBox="0 0 118 94">
-      <title>Bootstrap</title>
-    </symbol>
-    <symbol id="home" viewBox="0 0 16 16">
-      <path
-        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
-    </symbol>
-    <symbol id="speedometer2" viewBox="0 0 16 16">
-      <path
-        d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-      <path fill-rule="evenodd"
-        d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
-    </symbol>
-    <symbol id="people-circle" viewBox="0 0 16 16">
-      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-      <path fill-rule="evenodd"
-        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-    </symbol>
-    <symbol id="grid" viewBox="0 0 16 16">
-      <path
-        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-    </symbol>
-  </svg>
-
   <div id="wrapper">
     <div id="sidebar-wrapper">
       <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column ps-3 pt-3" id="sidebar">
         <br>
-        <div class="intro-text py-3 border-bottom">Welcome to DWP's Data Dashboard</div>
+        <a href="/dashboard" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          Dashboard
+        </a>
         <br>
         <div class="nav nav-pills nav-flush flex-column mb-auto">
           <div class="nav-item">
-            <a href="" class="nav-link" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
-              <svg class="bi" width="24" height="24">
-                <use xlink:href="#speedometer2" />
-              </svg>
-              Dashboard
-            </a>
-            <div class="dropdown-item" onclick="window.open(href='geomap')">Teen Birth Rate Map</div>
-            <div class="dropdown-item" onclick="window.open(href='county_census_map')">County Census Map</div>
-            <div class="dropdown-item" onclick="window.open(href='group_bar')">Group Bar</div>
-            <div class="dropdown-item" onclick="window.open(href='line_chart')">Line Chart</div>
-            <div class="dropdown-item border-bottom pb-3" onclick="window.open(href='state_county_bar_chart')">State
-              County Bar</div>
+            <div class="dropdown-item" onclick="window.location.href='geomap'">Map of Rates</div>
+            <div class="dropdown-item" onclick="window.location.href='county_census_map'">Map of Clinics</div>
+            <div class="dropdown-item" onclick="window.location.href='line_chart'">Rate by State vs. US</div>
+            <div class="dropdown-item" onclick="window.location.href='group_bar'"> Rate by Age Range</div>
+            <div class="dropdown-item border-bottom pb-3" onclick="window.location.href='state_county_bar_chart'">Rate Change</div>
           </div>
           <div>
             <a href="aboutdata" class="nav-link py-3 border-bottom" title="Customers" data-bs-toggle="tooltip"
               data-bs-placement="right">
-              <svg class="bi" width="24" height="24">
-                <use xlink:href="#grid" />
-              </svg>
-              About The Data
+              About the Data
             </a>
           </div>
           <div>
             <a href="aboutus" class="nav-link py-3" title="Customers" data-bs-toggle="tooltip"
               data-bs-placement="right">
-              <svg class="bi" width="24" height="24">
-                <use xlink:href="#people-circle" />
-              </svg>
               About Us
             </a>
           </div>
@@ -97,31 +70,23 @@
       </div>
     </div>
 
-
     <div class="row row-sm mg-b-20">
       <div class="col-lg-12 text-center">
-        <p class="h1">DWP Data Dashboard Overview</p>
+        <p class="h1">Teen Pregnancy Dashboard</p>
       </div>
 
       <div class="col-lg-6 ht-lg-100 mt-4">
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
-              <h6 class="card-title text-center border-bottom">US Map of Teen Birth Rates</h6>
-              <p class="card-text">Highest concentration of birth rates are found in the South and central areas of the
-                U.S. Lowest birth rate concentrations are found in Northeastern areas.</p>
-              <br>
-              <p class="card-text text-center"> <a href="geomap">Click here to explore the map in greater detail and use
-                  our machine learning model predictor to how
-                  county-specific factors can influence the teen birth rate.</a></p>
+              <h6 class="card-title text-center border-bottom">Teen Birth Rates Per Capita</h6>
+              <p class="card-text">This choropleth map visualizes the average teen birth rate per 1,000 females age 15-19 for each state from 2003 to 2018. 
+                The highest concentration of birth rates are found in the South of the United States, whereas the lowest birth rates are concentrated in Northeast. 
+                <a href="geomap">Explore the map in detail and predict the teen birth rate by county.</a></p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
-            <div class="flot-chart-wrapper">
-              <img src="../static/images/map2.png" class="img-fluid" alt="Map">
-            </div>
-            <p class="card-text">This choropleth map visualizes the average teen birth rate per 1,000 females aged 15-19
-              for each state from 2003 to 2018.</p>
+            <div id="map" class="leaflet-container" style="height: 400px; outline:none"></div>
           </div><!-- flot-chart-wrapper -->
         </div><!-- card-body -->
       </div><!-- card -->
@@ -130,22 +95,15 @@
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
-              <h6 class="card-title mb-2 text-center border-bottom">Map of Publicly Funded Clinics</h6>
-              <p class="card-text">Over the past 5 years, 2,300 new clinics were opened nationally, with the greatest
-                increase in California, with 145 new clinics, and the greatest number of closures in Iowa
-                at 17.</p>
-                <br>
-              <p class="card-text text-center"><a href="county_census_map">Click here to explore the map in greater
-                  detail and use our machine learning model predictor to how
-                  county-specific factors can influence the teen birth rate.</a></p>
+              <h6 class="card-title mb-2 text-center border-bottom">Publicly Funded Clinics Per County</h6>
+              <p class="card-text">This choropleth map displays the number of publicly funded health clinics available per
+                county in 2010 and 2015. In the 5 years between 2010 and 2015, 2,300 new clinics were opened nationally, with the greatest
+                number of openings in the state of California (612 statewide; 145 in Los Angeles) and closures in Iowa (17). 
+                <a href="county_census_map">Explore the map in detail and predict the teen birth rate by county.</a></p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
-            <div class="flot-chart-wrapper">
-              <img src="../static/images/map1.png" class="img-fluid" alt="Map1">
-            </div>
-            <p class="card-text">This choropleth map displays the number of publicly funded health clinics available per
-              county during the years 2010 and 2015.</p>
+            <div id="secondmap" class="leaflet-container" style="height: 400px; outline:none"></div>
           </div><!-- flot-chart-wrapper -->
         </div><!-- card-body -->
       </div><!-- card -->
@@ -154,8 +112,10 @@
         <div class="card card-dashboard-one">
           <div class="card-header">
             <div>
-              <h6 class="card-title text-center border-bottom">Teen Birthrate by State vs. US Total</h6>
-              <p class="card-text">Decreasing teen birth rates from 2003 to 2018.</p>
+              <h6 class="card-title text-center border-bottom">Teen Birth Rate by State vs. US</h6>
+              <p class="card-text">This visualization charts each state’s birth rate per 1,000 females age 15-19 by
+                year from 2003 to 2018, compared to the overall US teen birth rate. The teen birth rate has been steadily decreasing from 2003 to 2018, 
+                which mirrors an overall trend for birth rates in the US.</p>
             </div>
           </div><!-- card-header -->
           <div class="card-body">
@@ -174,8 +134,6 @@
                 </div>
               </div>
             </div><!-- flot-chart-wrapper -->
-            <p class="card-text">This visualization charts each state’s teen birth rate per 1,000 females aged 15-19 by
-              year from 2003 to 2018. </p>
           </div><!-- card-body -->
         </div><!-- card -->
       </div><!-- card -->
@@ -185,33 +143,38 @@
           <div class="card-header">
             <div>
               <h6 class="card-title text-center border-bottom">Teen Birth Rate by Age Range</h6>
-              <p class="card-text">Birth rate amongst teens aged 18-19 years is higher than that of teens aged 15-17
-                years.</p>
+              <p class="card-text">This visualization charts the teen birth rates from 2003 to 2018, separated by ages
+                15-17 and 18-19. The birth rate among teens aged 18-19 years is considerably higher than that of teens aged 15-17
+                years. This reflects that, despite a proliferation of media focused on young mothers, a majority of teen mothers are older than 18 when they give birth. </p>
             </div>
           </div><!-- card-header -->
-
           <div class="card-body">
             <div class="flot-chart-wrapper">
-              <img src="../static/images/group2.png" class="img-fluid" alt="Map">
+              <div id="plot" style="height: 315px;"></div>
+                <div class="row">
+                  <div class="col-2">
+                  <!-- <form class="form-group" style="padding-left:40px;"> -->
+                    <button id="submit" type="submit" class="btn btn-secondary" style="left:50%;">Plot</button>
+                  </div>
+                <div class="col-2">
+                      <!--<label for="stateInput">Type a state:</label> -->
+                      <input type="text" class="form-control" id="stateInput" placeholder="Illinois (default: United States)" style="width:235px;">
+                </div>
+              </div>
             </div>
-            <p class="card-text">This visualization charts the teen birth rates from 2003 to 2018, separated by ages
-              15-17 and 18-19. </p>
           </div><!-- card-body -->
         </div><!-- card -->
       </div><!-- col -->
-    </div><!-- col -->
 
-
-
-
-
-    <div class="col-lg-6 ht-lg-100p mt-4">
+    <div class="col-lg-8 ht-lg-100p mt-4" id="countychartdiv">
       <div class="card card-dashboard-one">
         <div class="card-header">
           <div>
-            <h6 class="card-title text-center border-bottom">Interactive State and County Bar Chart</h6>
-            <p class="card-text">Although most counties reflect the overall trend of declining teen birth rates across
-              the U.S., that change is not true of every county. </p>
+            <h6 class="card-title text-center border-bottom">Birth Rate Trends by State and County</h6>
+            <p class="card-text">This visualization charts the change in the birth rate per 1,000 teens aged 15-19
+              from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties
+              with the least and greatest amount of change will be pre-selected for any entered state. Although most counties reflect the overall trend of declining teen birth rates across
+              the US, that change is not true of every county. This reveals that the factors contributing to the declining birth rate may not be equally present from county to county.</p>
           </div>
         </div><!-- card-header -->
         <div class="card-body">
@@ -219,31 +182,67 @@
             <canvas id="stateChart"></canvas>
             <br>
             <div class="row">
-              <div class="col-3">
+              <div class="col-2">
                 <button type="button" class="btn btn-secondary" id="clear_bars">Clear States</button>
               </div>
-              <div class="col-3">
+              <div class="col-2">
                 <button type="button" class="btn btn-secondary" id="add_state_bars">Add State</button>
               </div>
-              <div class="col-3">
+              <div class="col-2">
                 <input class="form-control" type="text" id="state_input_bars" placeholder="Illinois">
               </div>
             </div>
             <canvas id="countyChart"></canvas>
           </div><!-- flot-chart-wrapper -->
-          <p class="card-text">This visualization charts the change in the teen birth rate per 1,000 females aged 15-19
-            from 2003 to 2018, organized by state in the top chart and county in the bottom chart. States and counties
-            with the least and greatest amount of change have been pre-selected. </p>
         </div><!-- card-body -->
       </div><!-- card -->
     </div><!-- card -->
+
+    <div class="col-lg-4 ht-lg-100p mt-4">
+      <div class="card card-dashboard-one">
+        <div class="card-header">
+          <div>
+            <h6 class="card-title text-center border-bottom">Sources</h6>
+            <p class="card-text">Our sources are explained in greater detail <a href="/aboutdata">here</a>.</p>
+          </div>
+        </div><!-- card-header -->
+        <div class="card-body" id="further-reading">
+          <ul class="list-group list-group-flush">
+            <a href="https://eric.clst.org/tech/usgeojson/" target="_blank" class="grow" class="list-group-item list-group-item-action">Cartographic Boundary Files (US Census)</a><br>
+            <a href="https://www.guttmacher.org/report/publicly-funded-contraceptive-services-us-clinics-2015" target="_blank" class="grow" class="list-group-item list-group-item-action">Publicly Funded Contraceptive Services at U.S. Clinics (Guttmacher Institute, 2015 and 2010)</a><br>
+            <a href="https://www.guttmacher.org/report/publicly-supported-FP-services-US-2016" target="_blank" class="grow" class="list-group-item list-group-item-action">Publicly Supported Family Planning Services in the United States: Likely Need, Availability and Impact (Guttmacher Institute, 2016)</a><br>
+            <a href="https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html" target="_blank" class="grow" class="list-group-item list-group-item-action">Social Vulnerability Index (CDC/Agency for Toxic Substances and Disease Registry, 2018)</a><br>
+            <a href="https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html" target="_blank" class="grow" class="list-group-item list-group-item-action">State Population Totals and Components of Change (Census Bureau, 2010-2019)</a><br>
+            <a href="https://catalog.data.gov/dataset/nchs-teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county" target="_blank" class="grow" class="list-group-item list-group-item-action">Teen Birth Rates for Age Group 15-19 in the United States by County (NCHS, 2018)</a><br>
+            <a href="https://catalog.data.gov/dataset/nchs-u-s-and-state-trends-on-teen-births" target="_blank" class="grow" class="list-group-item list-group-item-action">U.S. and State Trends on Teen Births (NCHS, 2018)</a><br>
+          </ul>
+        </div><!-- card-body -->
+        <div class="card-header">
+          <div>
+            <h6 class="card-title text-center border-bottom">Further Reading</h6>
+            <p class="card-text">Explore these articles to learn more about pregnancy and birth trends in the US.</p>
+          </div>
+        </div><!-- card-header -->
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <a href="https://www.chicagotribune.com/news/breaking/ct-illinois-abortion-numbers-increase-20210528-s5ddpbvcw5dk3ckwx5p5xv2d5m-story.html" target="_blank" class="grow" class="list-group-item list-group-item-action">Abortions in Illinois Increased Almost 10% in One Year, with More than 7,500 Women Traveling Here from Out of State. (Chicago Tribune, 2021)</a><br>    
+            <a href="https://www.cdc.gov/teenpregnancy/about/index.htm" target="_blank" class="grow" class="list-group-item list-group-item-action">About Teen Pregnancy (CDC, 2019)</a><br>
+            <a href="https://www.nytimes.com/interactive/2018/08/04/upshot/up-birth-age-gap.html" target="_blank" class="grow" class="list-group-item list-group-item-action">The Age That Women Have Babies: How a Gap Divides America (New York Times, 2018)</a><br>        
+            <a href="https://www.guttmacher.org/fact-sheet/contraceptive-use-united-states" target="_blank" class="grow" class="list-group-item list-group-item-action">Contraceptive Use in the United States (Guttmacher Institute, 2021)</a><br>
+            <a href="https://www.icah.org/blog/healthcare-rights-of-youth-in-illinois" target="_blank" class="grow" class="list-group-item list-group-item-action">Healthcare Rights of Youth in Illinois (Illinois Caucus for Adolescent Health, 2018)</a><br>
+            <a href="https://www.nytimes.com/2021/06/16/us/declining-birthrate-motherhood.html" target="_blank" class="grow" class="list-group-item list-group-item-action">Why American Women Everywhere Are Delaying Motherhood (New York Times, 2021)</a><br>
+            <a href="https://www.pewresearch.org/fact-tank/2019/08/02/why-is-the-teen-birth-rate-falling/" target="_blank" class="grow" class="list-group-item list-group-item-action">Why Is the Teen Birth Rate Falling? (Pew Research Center, 2019)</a><br>
+          </ul>
+        </div><!-- card-body -->
+      </div><!-- card -->
+    </div><!-- col -->
 
     <footer>
       <div class="container py-2">
         <div class="row text-center m-3">
           <div class="col-lg-12 text-center">
-            <span class="copyright quick-links">Copyright &copy; DWP Data Dashboard
-              <script>document.write(new Date().getFullYear())</script>
+            <span class="copyright quick-links">Created in 2021. Accessed in 
+              <script>document.write(new Date().getFullYear())</script>.
             </span>
           </div>
         </div>
@@ -257,6 +256,7 @@
     <!-- <script type="text/javascript" src="../static/js/choropleth.js"></script> -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+    <!--Variables-->
     <script type="text/javascript">
       var birthRate1517 = '{{ birthRate1517|tojson }}'
       var birthRate1517 = JSON.parse(birthRate1517)
@@ -276,17 +276,22 @@
     </script>
 
     <script type="text/javascript">
-      var countyCSV = '{{ countyCSV|tojson }}'
-      var countyCSV = JSON.parse(countyCSV)
-      var nationalCSV = '{{ nationalCSV|tojson }}'
-      var nationalCSV = JSON.parse(nationalCSV)
+      var counties = '{{ counties|tojson }}'
+      var counties = JSON.parse(counties)
+      var states = '{{ states|tojson }}'
+      var states = JSON.parse(states)
+    </script>
+
+    <script type="text/javascript">
+      var county_populations = '{{ county_populations|tojson }}'
+      var county_populations = JSON.parse(county_populations)
     </script>
 
     <script type="text/javascript" src="../static/js/line_Chart_LH.js"></script>
-    <!-- <script type="text/javascript" src="../static/js/geomap.js"></script> -->
+    <script type="text/javascript" src="../static/js/geomap.js"></script> 
+    <script type="text/javascript" src="../static/js/county_census_map.js"></script> 
     <script src="../static/js/group_bar.js"></script>
     <script type="text/javascript" src="static/js/state_county_bars_LH.js"></script>
 
 </body>
-
 </html>

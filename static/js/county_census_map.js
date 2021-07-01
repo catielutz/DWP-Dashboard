@@ -9,17 +9,32 @@ promises.push(d3.json(clinic10URL));
 promises.push(d3.json(clinic15URL));
 promises.push(d3.json(county10URL));
 promises.push(d3.json(county15URL));
+promises.push(county_populations); // Brought to JavaScript through app
 
 Promise.all(promises).then(function (data) {
     console.log(data)
-
+    
     var clinic2010 = data[0];
     var clinic2015 = data[1];
     var county10Info = data[2];
     var county15Info = data[3];
+    //var county_populations = data[4]
 
     var clinicAvail10 = {};
     var clinicAvail15 = {};
+
+    // Adding per capita info to clinic data: https://stackoverflow.com/questions/31831651/javascript-filter-array-multiple-conditions
+    /*clinic2010.data.forEach(function (clinic10Data) {
+        
+        var popList = county_populations.filter((d) => toString(d.FIPS) == clinic10Data["FIPS"]);
+        var population = +popList.population_2010;
+        console.log(population);
+        clinic10Data.properties['Population'] = +popList.population_2010;
+
+    });*/
+    
+    // Check to see if information was added 
+    console.log(clinic2010);
 
     // Adding FIPS to countyInfo
     county10Info.features.forEach(function (county10ID) {
@@ -56,7 +71,7 @@ Promise.all(promises).then(function (data) {
         let clinic15Val = clinicAvail15[county15ID.properties.FIPS];
         county15ID.properties['Pub_Fund_Clinics'] = +clinic15Val;
     });
-
+    
     var census2010;
 
     census2010 = L.choropleth(county10Info, {
@@ -65,14 +80,14 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-            color: "#fff",
-            weight: 1,
-            fillOpacity: 0.8
+        color: "#808080",
+        weight: 0.25,
+        fillOpacity: 0.8
         },
 
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
-                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2010<br><a href='/calculator/" + feature.properties.FIPS + "'><button id='calc' type='button' class='btn btn-secondary'>Calculate</button></a>");
         }
     });
 
@@ -84,20 +99,20 @@ Promise.all(promises).then(function (data) {
         steps: 15,
         mode: "q",
         style: {
-            color: "#fff",
-            weight: 1,
-            fillOpacity: 0.8
+        color: "#808080",
+        weight: 0.25,
+        fillOpacity: 0.8
         },
 
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAME + " County</b></br>" + "Publicly Funded Clinics: " +
-                feature.properties.Pub_Fund_Clinics + "<br>Year: 2015<br><a href='/calculator/" + feature.properties.FIPS + "'><button>Calculate</button></a>");
+                feature.properties.Pub_Fund_Clinics + "<br>Year: 2015<br><a href='/calculator/" + feature.properties.FIPS + "'><button id='calc' type='button' class='btn btn-secondary'>Calculate</button></a>");
         }
     });
 
-    var myMap = L.map("map", {
+    var myMap = L.map("secondmap", {
         center: [39.8283, -98.5795],
-        zoom: 5,
+        zoom: 3,
         layers: [
             census2010
         ]
@@ -125,7 +140,7 @@ Promise.all(promises).then(function (data) {
         var labels = [];
 
         // Add the minimum and maximum.
-        var legendInfo = "<h1>Publicly Funded Clinics by County</h1>" + "<h2>2015</h2>" +
+        var legendInfo = "<h1>Publicly Funded Clinics by County (2015)</h1>" +
             "<div class=\"labels\">" +
             "<div class=\"min\">" + limits[0] + "</div>" +
             "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
@@ -149,7 +164,7 @@ Promise.all(promises).then(function (data) {
         var labels = [];
 
         // Add the minimum and maximum.
-        var legendInfo = "<h1>Publicly Funded Clinics by County</h1>" + "<h2>2010</h2>" +
+        var legendInfo = "<h1>Publicly Funded Clinics by County (2010)</h1>" +
             "<div class=\"labels\">" +
             "<div class=\"min\">" + limits[0] + "</div>" +
             "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
@@ -178,4 +193,4 @@ Promise.all(promises).then(function (data) {
             census2010Legend.addTo(myMap);
         }
     })
-});
+}); 

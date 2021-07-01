@@ -1,13 +1,14 @@
 #form {
     background-color: #FFF;
-    height: 600px;
-    width: 700px;
+    height: auto;
+    width: auto;
     margin-right: auto;
     margin-left: auto;
     margin-top: 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 0px;
+    padding-bottom: 20px;
     text-align:center;
 }
 label {
@@ -27,4 +28,21 @@ input {
     width: 300px;
     border: 1px solid #000;
     margin-top: 5px;
+}
+#predict {
+    color: #fff;
+    background-color: #5c636a;
+    border-color: #565e64;
+    position: relative;
+    top: 0.5%;
+}
+#clear {
+    color: #fff;
+    background-color: #5c636a;
+    border-color: #565e64;
+    box-sizing: border-box 1px;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgb(130 138 145 / 50%);
 }

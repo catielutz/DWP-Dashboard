@@ -1,13 +1,10 @@
 // see data in console 
-console.log(countyCSV)
-console.log(nationalCSV)
+console.log(states);
+console.log(counties);
 
 // bonus chart.js plugin for datalabels
 
 Chart.plugins.register(ChartDataLabels);
-
-
-    var states = nationalCSV;
 
     // organizing data for states graph: creating an array of objects, one object per state plus the total US. 
     // objects have name, change, bar color. 
@@ -89,7 +86,7 @@ Chart.plugins.register(ChartDataLabels);
         },
         title: {
             display: true,
-            text: 'States with the highest and lowest change in teen birthrate vs. the US, 2003 - 2018'
+            text: 'States with the highest and lowest change in teen birth rate vs. the US (2003-2018)'
           },
           scales: {
             xAxes: [{
@@ -112,8 +109,6 @@ Chart.plugins.register(ChartDataLabels);
 
 
     //////////// now doing it for IL Counties
-
-    var counties = countyCSV;
 
     var input = "Illinois"
 
@@ -208,7 +203,7 @@ Chart.plugins.register(ChartDataLabels);
             },
             title: {
               display: true,
-              text: `Counties with the highest and lowest change in teen birthrates, 2003 - 2018`
+              text: `Counties with the highest and lowest change in teen birth rates (2003-2018)`
             },
             scales: {
                 xAxes: [{
